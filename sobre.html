@@ -1,0 +1,2878 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre Nós</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{font-family:'Poppins',sans-serif;background:#0b0f14;color:#fff;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* MENU */
+.navbar{position:fixed;top:0;left:0;width:100%;height:100px;z-index:1000;display:grid;grid-template-columns:270px minmax(0,1fr) 155px;align-items:center;gap:25px;padding:0 5%;background:rgba(11,15,20,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);transition:background .35s ease}
+.navbar.scrolled{background:rgba(11,15,20,.72)}
+.brand-area{display:flex;align-items:center;gap:20px;min-width:0}
+.brand-logo{display:flex;flex-direction:column;justify-content:center;line-height:.78;color:#fff;font-weight:500;letter-spacing:-1.5px;flex-shrink:0}
+.brand-logo .line-one,.brand-logo .line-two{font-size:23px}
+.brand-logo .line-two{margin-top:4px}
+.brand-logo .line-three{font-size:8px;letter-spacing:4px;margin-top:7px;font-weight:400}
+.brand-divider{width:1px;height:42px;background:rgba(255,255,255,.35);flex-shrink:0}
+.brand-description{display:flex;align-items:center;gap:9px;white-space:nowrap}
+.brand-dot{width:7px;height:7px;border-radius:50%;background:#a7192d;flex-shrink:0}
+.brand-description span:last-child{color:#9c9c9e;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:2px}
+.nav-links{display:flex;align-items:center;justify-content:center;gap:clamp(18px,2.5vw,38px)}
+.nav-links a{position:relative;color:#d6d6d6;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;letter-spacing:1.5px;white-space:nowrap;transition:color .3s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-7px;width:100%;height:2px;background:#a7192d;transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{display:flex;align-items:center;justify-content:flex-end}
+.nav-cta a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 17px;border:1px solid rgba(214,214,214,.55);color:#d6d6d6;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:1.5px;white-space:nowrap;transition:all .3s}
+.nav-cta a:hover{background:#a7192d;border-color:#a7192d;color:#fff}
+.menu-toggle{display:none;background:none;border:none;color:#d6d6d6;font-size:28px;cursor:pointer}
+
+/* BANNER */
+.banner{position:relative;width:100%;height:100vh;height:100svh;min-height:550px;overflow:hidden;background:#0b0f14}
+.banner .slide{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:56% center;pointer-events:none}
+.banner .overlay{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(to bottom,rgba(11,15,20,.24) 0%,rgba(11,15,20,.04) 38%,rgba(11,15,20,.20) 60%,rgba(11,15,20,.66) 79%,#0b0f14 100%)}
+
+/* PORTFÓLIO */
+.portfolio{position:relative;width:100%;padding:65px 6% 90px;background:#0b0f14}
+.portfolio-container{width:100%;max-width:1500px;margin:0 auto}
+.portfolio-header{display:flex;flex-direction:column;align-items:flex-start;gap:5px;margin-bottom:27px}
+.eyebrow{display:flex;align-items:center;gap:10px;color:#e5e5e5;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:600;letter-spacing:3px;text-transform:uppercase}
+.portfolio-line{width:7px;height:7px;border-radius:50%;background:#a7192d;flex-shrink:0}
+.eyebrow-sub{padding-left:17px;color:#777b80;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase}
+.recent-title{font-size:clamp(30px,3.3vw,46px);line-height:1.08;font-weight:700;color:#f4f4f4;letter-spacing:-1.2px;margin-bottom:4px}
+.recent-subtitle{font-size:14px;color:#8c8c91;font-style:italic;font-weight:300;margin-bottom:37px}
+.portfolio-row-title{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:22px}
+.row-heading{display:flex;flex-direction:column;gap:3px}
+.row-heading h3{display:flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:600;color:#dcdcdc;letter-spacing:2.6px;text-transform:uppercase}
+.row-heading h3::before{content:"";width:7px;height:7px;border-radius:50%;background:#a7192d;display:inline-block;flex-shrink:0}
+.row-subtitle{padding-left:17px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;color:#777b80;text-transform:uppercase}
+.portfolio-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:start;gap:22px}
+
+.video-card{width:100%;min-width:0;overflow:hidden;position:relative;background:#11161d;border:1px solid rgba(255,255,255,.07);transition:border-color .3s,transform .35s;cursor:pointer;isolation:isolate}
+.video-card:hover{border-color:rgba(255,255,255,.45);transform:translateY(-3px)}
+.video-card:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.video-frame{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;background:#11161d}
+.video-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;object-position:center;display:block;background:#11161d;transition:filter .4s}
+.video-card:hover .video-cover{filter:brightness(.78)}
+.video-frame::after{content:"";position:absolute;inset:25% 0 0;background:linear-gradient(to bottom,rgba(5,7,10,0) 0%,rgba(5,7,10,.08) 28%,rgba(5,7,10,.72) 100%);z-index:1;pointer-events:none;transition:inset .4s,background .4s}
+.video-play{position:absolute;z-index:4;top:50%;left:50%;transform:translate(-50%,-50%);width:58px;height:58px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.58);border-radius:50%;background:rgba(0,0,0,.38);box-shadow:0 2px 14px rgba(0,0,0,.18);transition:background .25s,border-color .25s,transform .25s,box-shadow .25s;pointer-events:none}
+.video-play svg{width:21px;height:21px;margin-left:3px;fill:rgba(255,255,255,.96)}
+.video-card:hover .video-play{background:rgba(0,0,0,.55);border-color:rgba(255,255,255,.82);transform:translate(-50%,-50%) scale(1.06);box-shadow:0 3px 18px rgba(0,0,0,.24)}
+.video-info{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:38px 14px 14px;display:flex;flex-direction:column;justify-content:flex-end;min-height:38%;pointer-events:none;transition:min-height .4s,padding .4s}
+.video-name{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:500;letter-spacing:1.35px;text-transform:uppercase;color:#f5f2ec;line-height:1.2;text-shadow:0 1px 8px rgba(0,0,0,.35);overflow-wrap:anywhere}
+.video-description{font-family:'Poppins',sans-serif;font-size:11px;font-weight:300;line-height:1.55;color:rgba(255,255,255,.88);max-height:0;opacity:0;overflow:hidden;margin-top:0;transform:translateY(7px);transition:max-height .45s,opacity .3s,transform .4s,margin .4s}
+.video-card:hover .video-info,.video-card:focus-visible .video-info,.video-card:focus-within .video-info{min-height:65%;padding-bottom:17px}
+.video-card:hover .video-frame::after,.video-card:focus-visible .video-frame::after,.video-card:focus-within .video-frame::after{inset:0;background:linear-gradient(to bottom,rgba(5,7,10,.02) 0%,rgba(5,7,10,.12) 28%,rgba(5,7,10,.88) 100%)}
+.video-card:hover .video-description,.video-card:focus-visible .video-description,.video-card:focus-within .video-description{max-height:150px;opacity:1;margin-top:9px;transform:translateY(0)}
+.making-heading{margin-top:55px}
+
+/* MODAL DO PORTFÓLIO */
+.video-modal{position:fixed;inset:0;z-index:3000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,.92)}
+.video-modal.open{display:flex}
+.video-modal-content{position:relative;width:auto;max-width:100%;max-height:90vh;display:flex;align-items:center;justify-content:center}
+.video-modal-frame{position:relative;width:auto;height:auto;aspect-ratio:16/9;max-width:calc(100vw - 48px);max-height:90vh;overflow:hidden;background:transparent;flex-shrink:0}
+.video-modal-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:transparent}
+.video-modal-close{position:absolute;right:0;top:-48px;width:42px;height:42px;border:1px solid rgba(255,255,255,.35);border-radius:50%;background:#171717;color:#fff;font-size:30px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5}
+.video-modal-close:hover{background:#a7192d;border-color:#a7192d}
+
+/* DESTAQUES */
+.destaques-rector{position:relative;width:100%;padding:62px 6% 88px;background:#0b0f14;border-top:1px solid rgba(255,255,255,.07)}
+.destaques-container{width:100%;max-width:1500px;margin:0 auto}
+.destaques-header{display:flex;flex-direction:column;align-items:flex-start;gap:5px;margin-bottom:38px}
+.destaques-eyebrow{display:flex;align-items:center;gap:10px;color:#e5e5e5;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:600;letter-spacing:3px;text-transform:uppercase}
+.destaques-eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:#a7192d;flex-shrink:0}
+.destaques-subtitle{padding-left:17px;color:#777b80;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase}
+.destaques-title{font-size:clamp(28px,3vw,40px);font-weight:700;line-height:1.1;letter-spacing:-.7px;margin-top:17px;color:#f4f4f4}
+.destaques-lista{display:flex;align-items:flex-start;gap:clamp(22px,4vw,55px);flex-wrap:wrap}
+.destaque-item{width:105px;display:flex;flex-direction:column;align-items:center;gap:11px;border:0;background:none;color:#d6d6d6;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:1.1px;text-align:center;text-transform:uppercase}
+.destaque-circulo{width:92px;height:92px;padding:3px;border-radius:50%;border:1.5px solid #a7192d;display:flex;align-items:center;justify-content:center;transition:transform .25s,border-color .25s,box-shadow .25s}
+.destaque-item:hover .destaque-circulo,.destaque-item:focus-visible .destaque-circulo{transform:scale(1.06);border-color:#e5e5e5;box-shadow:0 0 18px rgba(167,25,45,.22)}
+.destaque-item:focus-visible{outline:2px solid #fff;outline-offset:5px}
+.destaque-circulo img{width:100%;height:100%;display:block;object-fit:cover;border-radius:50%;background:#171b21}
+.destaque-nome{max-width:120px;line-height:1.25}
+
+/* CLIENTES */
+.empresas{position:relative;width:100%;padding:62px 6% 76px;background:#0b0f14;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);scroll-margin-top:100px}
+.empresas-container{width:100%;max-width:1500px;margin:0 auto}
+.empresas-header{margin-bottom:36px}
+.empresas-eyebrow{display:flex;align-items:center;gap:10px;color:#e5e5e5;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:600;letter-spacing:3px;text-transform:uppercase}
+.empresas-eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:#a7192d;flex-shrink:0}
+.empresas-subtitle{padding-left:17px;margin-top:5px;color:#777b80;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase}
+.logos-slider{width:100%;overflow:visible;padding:0}
+.logos-track{display:block;width:100%;animation:none;transform:none}
+.logos-grupo{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;justify-items:center;gap:38px 30px;padding:0}
+.logo-cliente{position:relative;width:100%;min-width:0;height:82px;padding:12px 22px;display:flex;align-items:center;justify-content:center;border:0;border-radius:0;background:transparent;box-shadow:none;transition:none}
+.logo-cliente img{display:block;max-width:150px;max-height:98px;width:auto;height:auto;object-fit:contain;opacity:.92;filter:grayscale(100%) brightness(0) invert(1)}
+
+/* VISUALIZADOR DOS DESTAQUES */
+.stories-viewer{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.54);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);overflow:hidden;isolation:isolate}
+.stories-viewer.aberto{display:flex}
+.stories-backdrop{position:absolute;inset:-30px;background-position:center;background-size:cover;filter:blur(35px) brightness(.35);opacity:.12;transform:scale(1.1);pointer-events:none}
+
+/* VÍDEO CENTRAL E PRÉVIAS LATERAIS */
+.stories-stage{position:relative;z-index:1;width:100%;height:100%;padding:0;display:block}
+.story-preview{position:relative;width:min(8.5vw,130px);height:min(27vh,230px);border-radius:10px;overflow:hidden;background:#11161d;opacity:.68;filter:brightness(.68);cursor:pointer;border:1px solid rgba(255,255,255,.12);transition:opacity .25s,filter .25s;flex-shrink:0}
+
+/* ÚNICA ALTERAÇÃO: faz o vídeo preencher a prévia lateral */
+.story-preview iframe{position:absolute;top:0;left:0;width:100%;height:100%;min-width:100%;min-height:100%;border:0;display:block;pointer-events:none;background:#11161d}
+
+/* As prévias comuns podem clarear ao passar o cursor, mas não mudam de posição ou tamanho. */
+.story-preview:hover{opacity:1;filter:brightness(.9);transform:none}
+
+/* A prévia esquerda mantém o translateY para continuar centralizada e estática no hover. */
+.story-preview-left{
+ position:absolute;
+ top:50%;
+ left:calc(50% - 510px);
+ transform:translateY(-50%);
+ display:block;
+}
+.story-preview-left:hover{
+ opacity:1;
+ filter:brightness(.9);
+ transform:translateY(-50%);
+}
+.story-preview-left:empty{display:none}
+
+.story-preview-right-group{
+ position:absolute;
+ top:50%;
+ left:calc(50% + 355px);
+ transform:translateY(-50%);
+ display:flex;
+ align-items:center;
+ gap:32px;
+ flex-shrink:0;
+}
+.stories-viewer.sem-preview-anterior #storyPreviewLeft{display:none}
+.stories-viewer.sem-preview-anterior .story-nav-arrow.anterior{display:none}
+
+.story-main{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(420px,42vw);height:min(88vh,800px);min-height:390px;border-radius:16px;overflow:hidden;background:#080a0d;box-shadow:0 20px 80px rgba(0,0,0,.5);flex-shrink:0}
+.story-progress{position:absolute;z-index:8;top:12px;left:12px;right:12px;display:flex;gap:4px}
+.story-progress-segment{height:3px;flex:1;border-radius:4px;background:rgba(255,255,255,.28);overflow:hidden}
+.story-progress-fill{height:100%;width:0;background:#fff;border-radius:4px}
+.story-progress-segment.concluido .story-progress-fill{width:100%}
+.story-topbar{position:absolute;z-index:12;top:25px;left:14px;right:14px;display:flex;align-items:center;gap:8px;min-width:0}
+.story-avatar{width:35px;height:35px;flex-shrink:0;border:1px solid rgba(255,255,255,.75);border-radius:50%;overflow:hidden;background:#171b21}
+.story-avatar img{width:100%;height:100%;object-fit:cover}
+.story-heading{min-width:0;flex:1;display:flex;align-items:center;text-shadow:0 1px 5px #000}
+.story-heading strong{font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.story-icon-button,.stories-close{position:relative;width:34px;height:34px;padding:0;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.18);border-radius:50%;background:rgba(0,0,0,.38);color:#fff;cursor:pointer;transition:background .25s,border-color .25s}
+.story-icon-button:hover,.stories-close:hover{background:rgba(167,25,45,.9);border-color:rgba(255,255,255,.4)}
+.story-icon-button svg,.stories-close svg{display:block;width:17px;height:17px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.stories-close svg{width:18px;height:18px}
+.story-sound-control{position:relative;width:34px;height:34px;flex:0 0 34px;display:flex;align-items:center;justify-content:center;overflow:visible}
+.story-sound-control .story-icon-button{position:relative;z-index:2;width:34px;height:34px;flex:0 0 34px}
+.story-sound-control input{position:absolute;z-index:1;top:50%;right:29px;transform:translateY(-50%);width:0;height:4px;padding:0;margin:0;opacity:0;pointer-events:none;accent-color:#fff;cursor:pointer;transition:width .25s,opacity .25s}
+.story-sound-control:hover input,.story-sound-control:focus-within input{width:65px;opacity:1;pointer-events:auto}
+.story-video-box{position:absolute;inset:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#080a0d}
+.story-video-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.story-loading{position:absolute;z-index:5;top:50%;left:50%;width:35px;height:35px;margin:-17px 0 0 -17px;border:3px solid rgba(255,255,255,.25);border-top-color:#fff;border-radius:50%;animation:story-spin .8s linear infinite;pointer-events:none}
+@keyframes story-spin{to{transform:rotate(360deg)}}
+.story-click-area{position:absolute;z-index:6;top:75px;bottom:0;width:28%;border:0;background:transparent;cursor:pointer}
+.story-click-area.anterior{left:0}
+.story-click-area.proximo{right:0}
+.story-nav-arrow{position:absolute;z-index:10;top:50%;width:43px;height:43px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(25,25,25,.55);color:#fff;font-size:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;transform:translateY(-50%);transition:background .2s,opacity .2s}
+.story-nav-arrow:hover{background:#a7192d}
+.story-nav-arrow.anterior{left:calc(50% - 265px)}
+.story-nav-arrow.proximo{left:calc(50% + 222px);right:auto}
+.story-hint{position:absolute;z-index:10;left:50%;bottom:17px;transform:translateX(-50%);font-size:10px;color:rgba(255,255,255,.65);white-space:nowrap;pointer-events:none}
+.story-paused{position:absolute;z-index:7;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.18);pointer-events:none}
+.story-paused.visivel{display:flex}
+.story-paused span{width:64px;height:64px;border-radius:50%;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;font-size:25px}
+
+/* TABLETS */
+@media(max-width:1250px){
+ .navbar{grid-template-columns:230px minmax(0,1fr) 140px;gap:15px;padding:0 3%}
+ .brand-area{gap:12px}
+ .brand-logo .line-one,.brand-logo .line-two{font-size:21px}
+ .brand-description span:last-child{font-size:11px;letter-spacing:1.2px}
+ .nav-links{gap:16px}
+ .nav-links a{font-size:13px}
+ .portfolio-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+ .story-preview{width:min(8vw,105px);height:min(25vh,195px)}
+
+ /* Mais espaço entre o vídeo principal e as prévias nos tablets. */
+ .story-preview-left{left:calc(50% - 435px)}
+ .story-preview-right-group{left:calc(50% + 300px);gap:25px}
+
+ .story-main{width:min(400px,43vw);height:82vh}
+ .story-nav-arrow.anterior{left:calc(50% - 250px)}
+ .story-nav-arrow.proximo{left:calc(50% + 210px)}
+ .logo-cliente{padding:10px 18px}
+ .logo-cliente img{max-width:130px;max-height:54px}
+ .logos-grupo{gap:32px 20px}
+}
+
+/* MOBILE */
+@media(max-width:900px){
+ .navbar{height:82px;display:flex;justify-content:space-between;padding:0 6%}
+ .brand-logo .line-one,.brand-logo .line-two{font-size:21px}
+ .brand-logo .line-three{font-size:8px}
+ .brand-divider{height:36px}
+ .brand-description span:last-child{font-size:12px}
+ .menu-toggle{display:block;margin-left:auto}
+ .nav-links{position:absolute;top:82px;left:0;width:100%;display:none;flex-direction:column;align-items:center;gap:0;padding:12px 0 22px;background:rgba(11,15,20,.97);border-bottom:1px solid rgba(255,255,255,.1)}
+ .nav-links.open{display:flex}
+ .nav-links a{width:100%;padding:15px 0;text-align:center;font-size:14px}
+ .nav-links a::after{left:35%;width:30%;bottom:7px}
+ .nav-cta{display:none}
+ .banner{min-height:500px}
+ .portfolio-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+ .destaques-rector{padding:52px 5% 68px}
+ .destaques-lista{gap:28px}
+ .stories-stage{padding:0;gap:0}
+ .story-preview,.story-preview-left,.story-preview-right-group{display:none!important}
+ .story-main{top:0;left:50%;transform:translateX(-50%);width:min(430px,100vw);height:100%;max-height:100svh;min-height:0;border-radius:0}
+ .story-nav-arrow{width:37px;height:37px;background:rgba(0,0,0,.35)}
+ .story-nav-arrow.anterior{left:10px}
+ .story-nav-arrow.proximo{left:auto;right:10px}
+ .story-topbar{top:23px;left:12px;right:12px;gap:6px}
+ .story-avatar{width:32px;height:32px}
+ .story-heading strong{font-size:13px}
+ .story-icon-button,.stories-close{width:32px;height:32px}
+ .story-sound-control{width:32px;height:32px;flex-basis:32px}
+ .story-sound-control .story-icon-button{width:32px;height:32px;flex-basis:32px}
+ .story-sound-control input{right:27px}
+ .story-sound-control:hover input,.story-sound-control:focus-within input{width:45px}
+ .empresas{padding:52px 5% 62px}
+ .empresas-header{margin-bottom:28px}
+ .logos-grupo{grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 12px}
+ .logo-cliente{height:75px;padding:8px}
+ .logo-cliente img{max-width:100%;max-height:48px}
+}
+
+/* CELULARES */
+@media(max-width:600px){
+ .navbar{padding:0 5%}
+ .brand-area{gap:11px}
+ .brand-logo .line-one,.brand-logo .line-two{font-size:19px}
+ .brand-logo .line-three{font-size:7px;letter-spacing:3.5px}
+ .brand-divider{height:32px}
+ .brand-description{gap:6px}
+ .brand-dot{width:6px;height:6px}
+ .brand-description span:last-child{font-size:10px;letter-spacing:.7px}
+ .menu-toggle{font-size:25px}
+ .banner{min-height:600px}
+ .banner .slide{object-position:center center}
+ .banner .overlay{background:linear-gradient(to bottom,rgba(11,15,20,.24) 0%,rgba(11,15,20,.10) 35%,rgba(11,15,20,.42) 65%,rgba(11,15,20,.80) 84%,#0b0f14 100%)}
+ .portfolio{padding:42px 5% 60px}
+ .portfolio-header{margin-bottom:24px}
+ .eyebrow{font-size:14px;letter-spacing:2.5px}
+ .recent-title{font-size:clamp(29px,8vw,37px);margin-bottom:4px}
+ .recent-subtitle{font-size:13px;margin-bottom:30px}
+ .portfolio-row-title{gap:12px;margin-bottom:18px}
+ .row-heading h3{font-size:15px;letter-spacing:2px}
+ .row-subtitle{font-size:10px;letter-spacing:1.5px}
+ .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}
+ .video-info{padding:30px 9px 10px;min-height:40%}
+ .video-name{font-size:12px;letter-spacing:1px}
+ .video-description{font-size:10px;line-height:1.45}
+ .video-card:hover .video-info,.video-card:focus-visible .video-info,.video-card:focus-within .video-info{min-height:78%;padding-bottom:11px}
+ .video-card:hover .video-description,.video-card:focus-visible .video-description,.video-card:focus-within .video-description{max-height:180px;margin-top:7px}
+ .video-play{width:49px;height:49px}
+ .video-play svg{width:18px;height:18px}
+ .making-heading{margin-top:42px}
+ .video-modal{padding:12px}
+ .video-modal-content{width:auto;max-width:100%;max-height:88vh}
+ .video-modal-frame{max-width:calc(100vw - 24px);max-height:88vh}
+ .video-modal-close{top:-45px;right:0}
+ .destaques-rector{padding:43px 5% 58px}
+ .destaques-header{margin-bottom:30px}
+ .destaques-eyebrow{font-size:14px;letter-spacing:2.2px}
+ .destaques-title{font-size:29px;margin-top:15px}
+ .destaques-lista{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px 10px;justify-items:center}
+ .destaque-item{width:100%;font-size:12px;letter-spacing:.7px;gap:9px}
+ .destaque-circulo{width:min(21vw,82px);height:min(21vw,82px);min-width:64px;min-height:64px}
+ .destaque-nome{font-size:11px}
+ .story-main{width:100vw;height:100svh}
+ .story-nav-arrow{width:33px;height:33px;font-size:23px}
+ .story-nav-arrow.anterior{left:6px}
+ .story-nav-arrow.proximo{left:auto;right:6px}
+ .story-hint{font-size:9px;bottom:12px}
+ .story-topbar{left:10px;right:10px;gap:5px}
+ .story-sound-control{width:30px;height:30px;flex-basis:30px}
+ .story-sound-control .story-icon-button{width:30px;height:30px;flex-basis:30px}
+ .story-sound-control input{right:25px}
+ .story-sound-control:hover input,.story-sound-control:focus-within input{width:38px}
+ .story-icon-button,.stories-close{width:30px;height:30px}
+ .story-icon-button svg{width:16px;height:16px}
+ .empresas{padding:43px 5% 52px}
+ .empresas-header{margin-bottom:22px}
+ .empresas-eyebrow{font-size:14px;letter-spacing:2.2px}
+ .empresas-subtitle{font-size:10px;letter-spacing:1.5px}
+ .logos-grupo{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px}
+ .logo-cliente{height:76px;padding:8px 12px}
+ .logo-cliente img{max-width:125px;max-height:45px}
+}
+
+@media(max-width:360px){
+ .brand-area{gap:8px}
+ .brand-logo .line-one,.brand-logo .line-two{font-size:17px}
+ .brand-description span:last-child{font-size:9px;letter-spacing:.3px}
+ .recent-title{font-size:27px}
+ .portfolio-grid{gap:14px 9px}
+ .destaque-circulo{min-width:58px;min-height:58px}
+ .destaque-nome{font-size:10px}
+ .logos-grupo{gap:18px 10px}
+ .logo-cliente{height:68px;padding:6px}
+ .logo-cliente img{max-height:40px}
+ .story-topbar{gap:4px}
+ .story-avatar{width:29px;height:29px}
+ .story-heading strong{font-size:11px}
+ .story-icon-button,.stories-close{width:28px;height:28px}
+ .story-sound-control{width:28px;height:28px;flex-basis:28px}
+ .story-sound-control .story-icon-button{width:28px;height:28px;flex-basis:28px}
+ .story-sound-control input{right:23px}
+ .story-sound-control:hover input,.story-sound-control:focus-within input{width:30px}
+}
+
+@media(hover:none){
+ .video-description{max-height:180px;opacity:.92;margin-top:7px;transform:none}
+ .video-info{min-height:52%;padding-bottom:11px}
+ .video-frame::after{inset:0;background:linear-gradient(to bottom,rgba(5,7,10,0) 25%,rgba(5,7,10,.78) 100%)}
+ .video-card:hover .video-cover{filter:none}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{transition-duration:.01ms!important}
+}
+
+/* Permissão inicial para tocar a narração */
+.permissao-som{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(5,7,10,.38);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.permissao-som[hidden]{display:none!important}
+.permissao-som-conteudo{width:min(100%,420px);padding:34px 28px;text-align:center;color:#fff;background:rgba(17,19,24,.82);border:1px solid rgba(255,255,255,.22);border-radius:18px;box-shadow:0 20px 70px rgba(0,0,0,.28);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);font-family:'Poppins',sans-serif}
+.permissao-som-marca{margin:0 0 12px;color:#d5a4aa;font-size:11px;letter-spacing:3px;font-weight:600}
+.permissao-som-conteudo h2{margin:0 0 12px;font-size:26px;font-weight:600;color:#fff}
+.permissao-som-conteudo p:not(.permissao-som-marca){margin:0 0 24px;color:rgba(255,255,255,.78);font-size:14px;line-height:1.7}
+ .permissao-som-botoes{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.permissao-som-botoes button{min-width:120px;border-radius:999px;padding:13px 22px;font:600 13px 'Poppins',sans-serif;cursor:pointer;transition:background .2s,transform .2s,border-color .2s}
+#permitirSom{border:1px solid #a7192d;background:#a7192d;color:#fff}
+#permitirSom:hover{background:#c12239;border-color:#c12239;transform:translateY(-1px)}
+#recusarSom{border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff}
+#recusarSom:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-1px)}
+.permissao-som-botoes button:focus-visible{outline:2px solid #fff;outline-offset:4px}
+
+
+/* Separação das páginas: mantém o layout original e mostra apenas a área correspondente. */
+body[data-page="home"] #portfolio,
+body[data-page="home"] .destaques-rector,
+body[data-page="home"] .empresas { display:none !important; }
+body[data-page="home"] .permissao-som:not([hidden]) { display:flex; }
+body[data-page="home"] .banner { display:block; }
+body[data-page="home"] .video-modal,
+body[data-page="home"] .stories-viewer { display:none !important; }
+
+body[data-page="portfolio"] #Home,
+body[data-page="portfolio"] .destaques-rector { display:none !important; }
+body[data-page="portfolio"] #portfolio,
+body[data-page="portfolio"] .empresas { display:block; }
+body[data-page="portfolio"] .permissao-som { display:none !important; }
+
+body[data-page="experiencias"] #Home,
+body[data-page="experiencias"] #portfolio,
+body[data-page="experiencias"] .empresas { display:none !important; }
+body[data-page="experiencias"] .destaques-rector { display:block; }
+body[data-page="experiencias"] .permissao-som { display:none !important; }
+
+
+/* Página Sobre Nós: banner e clientes juntos, preservando o layout original. */
+body[data-page="sobre"] #portfolio,
+body[data-page="sobre"] .destaques-rector { display:none !important; }
+body[data-page="sobre"] #Home,
+body[data-page="sobre"] .empresas { display:block !important; }
+body[data-page="sobre"] .permissao-som:not([hidden]) { display:flex; }
+body[data-page="sobre"] .video-modal,
+body[data-page="sobre"] .stories-viewer { display:none !important; }
+
+
+/* MENU FLUTUANTE TRANSPARENTE E ARREDONDADO */
+.navbar{
+ position:fixed;top:18px;left:4%;width:92%;height:66px;z-index:1000;
+ display:flex;align-items:center;justify-content:space-between;gap:24px;
+ padding:0 24px;background:rgba(8,10,13,.58);
+ -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+ border:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);
+ border-radius:18px;box-shadow:0 8px 28px rgba(0,0,0,.12);
+ transition:background .3s ease,box-shadow .3s ease
+}
+.navbar.scrolled{background:rgba(8,10,13,.68);box-shadow:0 10px 32px rgba(0,0,0,.2)}
+.brand-area{gap:0;flex:0 0 auto}
+.brand-divider,.brand-description{display:none}
+.nav-links{display:flex;align-items:center;justify-content:flex-end;gap:24px;margin-left:auto}
+.nav-links a{font-family:'Poppins',sans-serif;font-size:14px;font-weight:500;letter-spacing:0;color:#f2f2f2}
+.nav-links a::after{display:none}
+.nav-links a:hover{color:#fff;opacity:.82}
+.nav-links a.nav-contact-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 22px;background:#c21807;border:1px solid #c21807;border-radius:9px;color:#fff}
+.nav-links a.nav-contact-link:hover{background:#a91508;border-color:#a91508;opacity:1}
+.nav-cta{display:none!important}
+.menu-toggle{display:none}
+@media(max-width:1100px){
+ .navbar{top:12px;left:3%;width:94%;height:62px;padding:0 18px;grid-template-columns:none}
+ .nav-links{display:none;position:absolute;top:70px;left:0;width:100%;padding:20px;background:rgba(8,10,13,.88);border:1px solid rgba(255,255,255,.12);border-radius:16px;flex-direction:column;gap:18px;align-items:stretch}
+ .nav-links.active{display:flex}
+ .nav-links a{text-align:center}
+ .nav-links a.nav-contact-link{align-self:center}
+ .menu-toggle{display:block;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;margin-left:auto}
+}
+@media(max-width:600px){
+ .navbar{top:10px;left:3%;width:94%;height:58px;padding:0 16px;border-radius:15px}
+ .nav-links{top:66px}
+ .brand-logo .line-one,.brand-logo .line-two{font-size:21px}
+}
+
+
+/* Menu flutuante: compacto, arredondado e translúcido */
+.navbar{top:18px!important;left:6%!important;width:88%!important;height:62px!important;padding:0 24px!important;display:flex!important;justify-content:space-between!important;gap:20px!important;grid-template-columns:none!important;border:1px solid rgba(255,255,255,.13)!important;border-radius:14px!important;background:rgba(0,0,0,.43)!important;backdrop-filter:blur(10px)!important;-webkit-backdrop-filter:blur(10px)!important;box-shadow:0 8px 30px rgba(0,0,0,.12)!important;}
+.navbar.scrolled{background:rgba(0,0,0,.34)!important;}
+.brand-area{gap:0!important;min-width:0!important;}
+.brand-logo{display:block!important;font-family:'Poppins',sans-serif!important;font-size:17px!important;font-weight:600!important;letter-spacing:.2px!important;line-height:1!important;color:#fff!important;white-space:nowrap!important;}
+.brand-divider,.brand-description{display:none!important;}
+.nav-links{gap:clamp(18px,2.2vw,32px)!important;}
+.nav-links a{font-family:'Poppins',sans-serif!important;font-size:13px!important;font-weight:500!important;letter-spacing:0!important;}
+.nav-links a::after{bottom:-6px!important;height:1px!important;}
+@media(max-width:1100px){
+ .navbar{top:12px!important;left:3%!important;width:94%!important;height:58px!important;padding:0 17px!important;}
+ .brand-logo{font-size:16px!important;}
+ .nav-links{top:68px!important;background:rgba(0,0,0,.48)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;border-radius:14px!important;}
+}
+
+
+/* Ajuste final do menu conforme referência */
+.navbar{top:18px!important;left:6%!important;width:88%!important;height:62px!important;min-height:0!important;padding:0 24px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:20px!important;grid-template-columns:none!important;background:rgba(8,10,13,.43)!important;-webkit-backdrop-filter:blur(16px)!important;backdrop-filter:blur(16px)!important;border:1px solid rgba(255,255,255,.12)!important;border-bottom:1px solid rgba(255,255,255,.12)!important;border-radius:14px!important;box-shadow:0 8px 30px rgba(0,0,0,.12)!important}
+.brand-area{gap:12px!important;flex:0 0 auto!important}
+.brand-logo{font-family:'Poppins',sans-serif!important;font-size:20px!important;font-weight:500!important;letter-spacing:.1px!important;line-height:1!important;white-space:nowrap!important;text-transform:none!important}
+.brand-divider{height:28px!important;opacity:.55!important}
+.brand-description{display:none!important}
+.nav-links{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:25px!important;margin-left:auto!important}
+.nav-links a{font-size:13px!important;letter-spacing:0!important;font-family:'Poppins',sans-serif!important;font-weight:400!important}
+.nav-cta{display:none!important}
+.menu-toggle{display:none!important}
+@media(max-width:760px){.navbar{top:12px!important;left:4%!important;width:92%!important;height:58px!important;padding:0 17px!important}.brand-logo{font-size:19px!important}.menu-toggle{display:block!important;margin-left:auto!important}.nav-links{display:none!important;position:absolute!important;top:66px!important;left:0!important;width:100%!important;padding:20px!important;background:rgba(8,10,13,.48)!important;backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:14px!important;flex-direction:column!important;gap:18px!important}.nav-links.active{display:flex!important}}
+
+
+/* SOBRE NÓS — carrossel automático */
+
+.about-social-heading{display:flex;align-items:center;justify-content:center;gap:13px;margin:0 auto 34px;color:#f4f4f4;font-family:'Poppins',sans-serif}
+.about-social-heading>a:first-of-type{font-size:15px;font-weight:600;color:inherit;text-decoration:none}
+.about-social-mark{width:40px;height:40px;border:0;border-radius:0;display:grid;place-items:center;font-family:'Poppins',sans-serif;font-size:17px}
+.about-social-divider{height:34px;width:1px;background:rgba(255,255,255,.3);margin:0 5px}
+.about-social-button{display:inline-flex;align-items:center;gap:9px;padding:9px 15px;background:#080808;border-radius:3px;color:#fff;text-decoration:none;font-size:12px;font-weight:500}
+.about-social-button span{font-size:21px;line-height:1}
+.about-story-inner{margin-top:52px}
+@media(max-width:600px){.about-social-heading{gap:8px;margin-bottom:25px}.about-social-heading>a:first-of-type{font-size:12px}.about-social-mark{width:34px;height:34px}.about-social-button{padding:8px 10px;font-size:11px}.about-story-inner{margin-top:38px}}
+
+.about-story{background:#0b0f14;color:#f4f4f4;padding:76px clamp(18px,6vw,88px) 80px;font-family:'Poppins',sans-serif}
+.about-reel-wrap{position:relative;max-width:1500px;margin:0 auto;overflow:visible;padding:0 52px}
+.about-reel{display:flex;gap:6px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 0 4px}
+.about-reel::-webkit-scrollbar{display:none}
+.about-reel-card{position:relative;flex:0 0 calc((100% - 30px)/6);aspect-ratio:.67;overflow:hidden;background:#171b21;scroll-snap-align:start}
+.about-reel-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.about-reel-card:hover img{transform:scale(1.04)}
+.about-reel-arrow{position:absolute;top:50%;z-index:3;transform:translateY(-50%);width:42px;height:42px;border:0;border-radius:50%;background:rgba(255,255,255,.92);color:#161616;font-size:30px;line-height:1;display:grid;place-items:center;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+.about-reel-arrow:hover{background:#fff}
+.about-reel-arrow.prev{left:0}
+.about-reel-arrow.next{right:0}
+/* Centraliza visualmente os dois chevrons dentro das bolas do carrossel Sobre Nós. */
+.about-reel-arrow{padding:0 0 3px 2px!important;box-sizing:border-box;text-align:center;align-items:center;justify-items:center}
+.about-reel-arrow.prev{padding:0 2px 3px 0!important}
+.about-view-portfolio{width:auto!important;height:42px!important;padding:0 15px!important;display:flex!important;grid-auto-flow:column;align-items:center;justify-content:center;gap:8px;border-radius:24px!important;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:.8px;white-space:nowrap}
+.about-view-portfolio svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.about-view-portfolio span{font-size:14px;line-height:1}
+@media(max-width:600px){.about-view-portfolio{height:36px!important;padding:0 10px!important;font-size:12px}.about-view-portfolio span{font-size:12px}.about-view-portfolio svg{width:16px;height:16px}}
+.about-story-inner{max-width:1180px;margin:64px auto 0}
+.about-story-intro{text-align:center;max-width:680px;margin:0 auto 38px}
+.about-story-kicker{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#c52b3d;font-weight:600}
+.about-story-intro h2{font-size:clamp(30px,4vw,46px);line-height:1.1;margin:12px 0 14px;letter-spacing:-1.3px}
+.about-story-intro p{font-size:14px;line-height:1.8;color:#c0c2c5}
+.about-story-row{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(22px,4vw,54px);margin:30px 0}
+.about-story-row:nth-child(even) .about-story-image{order:2}
+.about-story-image{height:clamp(220px,28vw,360px);overflow:hidden;background:#171b21;border:1px solid rgba(255,255,255,.12);box-sizing:border-box}
+.about-story-image img{width:100%;height:100%;object-fit:cover;display:block}
+.about-story-copy{padding:10px 2px}
+.about-story-copy h3{font-size:clamp(22px,2.4vw,30px);line-height:1.2;margin:0 0 12px;letter-spacing:-.5px}
+.about-story-copy p{font-size:14px;line-height:1.85;color:#c0c2c5;margin:0}
+.about-story-end{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:42px}
+.about-story-end img{width:100%;height:190px;object-fit:cover;display:block;border:1px solid rgba(255,255,255,.12);box-sizing:border-box}
+@media(max-width:850px){.about-reel-card{flex-basis:calc((100% - 12px)/3)}.about-story-row{gap:22px}.about-story-image{height:250px}}
+@media(max-width:600px){.about-story{padding:54px 16px 55px}.about-reel-wrap{padding:0 40px}.about-reel-card{flex-basis:42%;}.about-reel-arrow{width:34px;height:34px;font-size:25px}.about-story-inner{margin-top:45px}.about-story-intro{text-align:left}.about-story-row{grid-template-columns:1fr;gap:14px;margin:28px 0}.about-story-row:nth-child(even) .about-story-image{order:0}.about-story-image{height:230px}.about-story-copy h3{font-size:24px}.about-story-copy p{font-size:13px}.about-story-end{grid-template-columns:repeat(3,1fr);gap:5px}.about-story-end img{height:105px}}
+
+/* Ajustes da seção Sobre Nós */
+.about-story{padding:100px clamp(18px,5vw,76px) 80px;background:#0b0f14;color:#f4f4f4}
+.about-social-heading{margin-bottom:42px;gap:13px}
+.about-social-mark{font-size:21px}
+.about-reel-wrap{max-width:1660px;padding:0 66px;margin:0 auto}
+.about-reel{gap:8px;overflow-x:auto;overflow-y:hidden;scroll-behavior:auto;scroll-snap-type:none;overscroll-behavior-x:contain;cursor:grab}
+.about-reel-card{flex:0 0 calc((100% - 40px)/6);aspect-ratio:.67;cursor:pointer}
+.about-reel-arrow.prev{left:7px}
+.about-reel-arrow.next{right:7px}
+.about-story-inner{max-width:1320px;margin:88px auto 0}
+.about-story-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(52px,7vw,112px);margin:60px 0}
+.about-story-row:nth-child(odd) .about-story-image{order:2}
+.about-story-row:nth-child(even) .about-story-image{order:0}
+.about-story-image{height:clamp(280px,32vw,440px)}
+.about-story-copy h3{font-size:clamp(30px,3vw,43px);line-height:1.1;letter-spacing:-.8px;margin-bottom:18px}
+.about-story-copy p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;color:#c0c2c5}
+.about-story-end{gap:10px;margin-top:54px}
+.about-story-end img{height:clamp(160px,18vw,250px)}
+@media(max-width:850px){.about-reel-card{flex-basis:calc((100% - 16px)/3)}.about-story-row{gap:25px}.about-story-image{height:280px}}
+@media(max-width:600px){.about-story{padding:70px 16px 55px}.about-social-heading{margin-bottom:30px}.about-reel-wrap{padding:0 42px}.about-reel-card{flex-basis:68%}.about-reel-arrow.prev{left:2px}.about-reel-arrow.next{right:2px}.about-story-inner{margin-top:52px}.about-story-row{grid-template-columns:1fr;gap:14px;margin:34px 0}.about-story-row:nth-child(odd) .about-story-image,.about-story-row:nth-child(even) .about-story-image{order:0}.about-story-image{height:250px}.about-story-copy h3{font-size:29px}.about-story-copy p{font-size:14px}.about-story-end{grid-template-columns:repeat(3,1fr);gap:5px}.about-story-end img{height:110px}}
+
+
+
+/* Ajuste do carrossel conforme a referência: margem equilibrada e movimento infinito */
+.about-story{padding-top:48px!important}
+.about-social-heading{margin-bottom:30px!important}
+.about-reel-wrap{max-width:1450px!important;padding:0 54px!important;margin:0 auto!important}
+.about-reel-viewport{width:100%;overflow:hidden;position:relative}
+.about-reel-track{display:flex!important;flex-wrap:nowrap!important;gap:8px!important;width:max-content!important;max-width:none!important;overflow:visible!important;padding:0 0 4px!important;scroll-snap-type:none!important;scroll-behavior:auto!important;transform:translate3d(0,0,0);will-change:transform;cursor:default!important}
+.about-reel-card{flex:0 0 clamp(140px,calc((100vw - 148px)/6),217px)!important;min-width:0!important;aspect-ratio:.67!important}
+.about-reel-arrow.prev{left:0!important}
+.about-reel-arrow.next{right:0!important}
+@media(max-width:850px){
+ .about-story{padding-top:42px!important}
+ .about-reel-wrap{padding:0 43px!important}
+ .about-reel-card{flex-basis:calc((100vw - 150px - 16px)/3)!important}
+}
+@media(max-width:600px){
+ .about-story{padding-top:8px!important}
+ .about-social-heading{margin-bottom:24px!important}
+ .about-reel-wrap{padding:0 35px!important}
+ .about-reel-card{flex-basis:calc((100vw - 100px)/2)!important}
+}
+
+
+/* Tipografia da seção Sobre Nós alinhada à seção Clientes */
+.about-story,
+.about-story h2,
+.about-story h3,
+.about-story p,
+.about-story .about-story-kicker,
+.about-story .about-social-heading,
+.about-story .about-social-heading a,
+.about-story .about-social-button {
+  font-family: 'Barlow Condensed', sans-serif !important;
+}
+.about-story-copy h3 { font-weight: 600; }
+.about-story-copy p { font-weight: 400; }
+
+/* Setas flutuantes de navegação e rodapé */
+.floating-page-arrows{position:fixed;right:22px;bottom:22px;top:auto;transform:none;z-index:9998;display:flex;align-items:center;justify-content:flex-end;}
+.floating-page-arrows a{width:auto;height:auto;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;gap:8px;white-space:nowrap;border:0;border-radius:0;background:transparent;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:.8px;line-height:1;text-decoration:none;box-shadow:none;padding:0;backdrop-filter:none;-webkit-backdrop-filter:none;transition:opacity .2s ease;}
+.floating-page-arrows a:hover{opacity:.8;}
+.floating-page-arrows a svg{display:block;width:19px;height:19px;flex:0 0 19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.floating-page-arrows a span{display:inline-block;white-space:nowrap;}
+.site-copyright{width:100%;padding:24px 20px;text-align:center;background:#0b0f14;color:rgba(255,255,255,.66);border-top:1px solid rgba(255,255,255,.09);font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:1px;}
+.site-copyright strong{color:#fff;font-weight:600;}
+@media(max-width:600px){.floating-page-arrows{right:10px;bottom:14px}.floating-page-arrows a{font-size:12px;gap:6px}.floating-page-arrows a svg{width:16px;height:16px;flex-basis:16px}.site-copyright{padding:20px 14px;font-size:13px}}
+
+.about-story-next a{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:0;border:0;border-radius:0;background:transparent;color:#fff;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:.8px;white-space:nowrap;box-shadow:none}.about-story-next a svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* Ajuste somente visual do menu: barra flutuante preta translúcida */
+.navbar{
+  position:fixed!important;top:18px!important;left:6%!important;width:88%!important;
+  height:64px!important;box-sizing:border-box!important;padding:0 24px!important;
+  display:flex!important;align-items:center!important;justify-content:space-between!important;
+  gap:24px!important;background:rgba(0,0,0,.68)!important;
+  -webkit-backdrop-filter:blur(12px)!important;backdrop-filter:blur(12px)!important;
+  border:1px solid rgba(255,255,255,.08)!important;border-radius:0!important;
+  box-shadow:none!important;
+}
+.navbar .brand-area{flex:0 0 auto!important;min-width:0!important;gap:0!important}
+.navbar .brand-divider,.navbar .brand-description{display:none!important}
+.navbar .brand-logo{display:block!important;white-space:nowrap!important;line-height:1!important;font-size:20px!important;letter-spacing:-.3px!important;font-weight:600!important}
+.navbar .nav-links{margin-left:auto!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:24px!important;position:static!important;width:auto!important;padding:0!important;background:transparent!important;border:0!important}
+.navbar .nav-links a{font-family:'Poppins',sans-serif!important;font-size:14px!important;font-weight:400!important;letter-spacing:0!important;color:#f1f1f1!important;padding:0!important;white-space:nowrap!important;text-transform:none!important}
+.navbar .nav-links a::after{display:none!important}
+.navbar .nav-links a.nav-contact-link{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:40px!important;padding:0 22px!important;background:#c21807!important;border:1px solid #c21807!important;border-radius:9px!important;color:#fff!important;text-transform:none!important}
+.navbar .menu-toggle{display:none!important}
+@media(max-width:900px){
+ .navbar{top:12px!important;left:3%!important;width:94%!important;height:62px!important;padding:0 16px!important;border-radius:0!important}
+ .navbar .nav-links{gap:14px!important}
+ .navbar .nav-links a{font-size:12px!important}
+}
+@media(max-width:600px){
+ .navbar{top:10px!important;left:3%!important;width:94%!important;height:58px!important;padding:0 14px!important}
+ .navbar .brand-logo{font-size:17px!important}
+ .navbar .nav-links{gap:10px!important}
+ .navbar .nav-links a{font-size:11px!important}
+ .navbar .nav-links a.nav-contact-link{min-height:34px!important;padding:0 10px!important}
+}
+
+/* Ajuste final: dimensões compactas iguais à referência */
+@media (min-width: 1101px){
+ .navbar{top:18px!important;left:13%!important;width:74%!important;height:64px!important;min-height:0!important;box-sizing:border-box!important;padding:0 26px!important;border-radius:0!important;gap:24px!important}
+ .navbar .brand-logo .line-one,.navbar .brand-logo .line-two{font-size:20px!important}
+ .navbar .nav-links{gap:clamp(16px,2.1vw,30px)!important}
+ .navbar .nav-links a{font-size:13px!important;letter-spacing:.2px!important}
+ .navbar .nav-cta a{min-height:38px!important;padding:0 18px!important}
+}
+@media (max-width:1100px){
+ .navbar{top:12px!important;left:3%!important;width:94%!important;height:62px!important;padding:0 18px!important}
+}
+
+
+/* Títulos da página Sobre Nós padronizados em 35px. */
+.about-story-copy h3{font-size:35px!important;}
+.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}
+.empresas .empresas-eyebrow{font-size:35px!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:35px!important;}.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}.empresas .empresas-eyebrow{font-size:35px!important;}}
+
+</style>
+
+<style>
+/* Ajuste fino do menu: cantos menos arredondados e marca cinza claro */
+.navbar{border-radius:10px!important;}
+.navbar .brand-logo{color:#d8d8d8!important;}
+@media(max-width:1100px){.navbar{border-radius:10px!important;}}
+@media(max-width:700px){.navbar{border-radius:9px!important;}}
+
+/* Títulos da página Sobre Nós padronizados em 35px. */
+.about-story-copy h3{font-size:35px!important;}
+.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}
+.empresas .empresas-eyebrow{font-size:35px!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:35px!important;}.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}.empresas .empresas-eyebrow{font-size:35px!important;}}
+
+</style>
+
+<style id="menu-sem-borda">
+/* Barra de menu sem borda branca */
+.navbar,
+.navbar.scrolled {
+  border: 0 !important;
+  border-top: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+  border-left: 0 !important;
+  outline: 0 !important;
+}
+
+/* Títulos da página Sobre Nós padronizados em 35px. */
+.about-story-copy h3{font-size:35px!important;}
+.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}
+.empresas .empresas-eyebrow{font-size:35px!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:35px!important;}.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}.empresas .empresas-eyebrow{font-size:35px!important;}}
+
+</style>
+
+<style id="instagram-heading-aligned-with-first-card">
+/* As frases começam exatamente na mesma linha da borda esquerda do primeiro quadrado. */
+.instagram-live-heading{width:100%!important;max-width:1200px!important;margin:0 auto 28px!important;box-sizing:border-box!important;text-align:left!important}
+.instagram-live-about-title,.instagram-live-heading-description{text-align:left!important;margin-left:0!important;margin-right:0!important}
+@media(max-width:700px){.instagram-live-heading{width:100%!important;max-width:100%!important}}
+
+/* Títulos da página Sobre Nós padronizados em 35px. */
+.about-story-copy h3{font-size:35px!important;}
+.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}
+.empresas .empresas-eyebrow{font-size:35px!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:35px!important;}.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}.empresas .empresas-eyebrow{font-size:35px!important;}}
+
+</style>
+<style id="marcas-title-case-fix">
+.empresas .empresas-eyebrow{ text-transform:none !important; }
+
+/* Títulos da página Sobre Nós padronizados em 35px. */
+.about-story-copy h3{font-size:35px!important;}
+.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}
+.empresas .empresas-eyebrow{font-size:35px!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:35px!important;}.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}.empresas .empresas-eyebrow{font-size:35px!important;}}
+
+</style>
+<style id="instagram-live-heading-typography">
+/* Título e texto acima do quadrado, usando a mesma família tipográfica de Bastidores. */
+.instagram-live-about-title{
+  font-family:'Poppins',sans-serif!important;
+  font-size:30px!important;
+  font-weight:700!important;
+  line-height:1.08!important;
+  letter-spacing:-1.2px!important;
+  color:#f4f4f4!important;
+  margin:0 0 10px!important;
+  text-align:left!important;
+}
+.instagram-live-heading-description{
+  font-family:inherit!important;
+  font-size:14px!important;
+  color:#8c8c91!important;
+  font-style:italic!important;
+  font-weight:300!important;
+  line-height:1.35!important;
+  margin:0 0 26px!important;
+  text-align:left!important;
+}
+.instagram-live-heading-description a{font-family:inherit!important;color:inherit!important;text-decoration:underline;text-underline-offset:3px}
+
+/* Títulos da página Sobre Nós padronizados em 35px. */
+.about-story-copy h3{font-size:35px!important;}
+.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}
+.empresas .empresas-eyebrow{font-size:35px!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:35px!important;}.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}.empresas .empresas-eyebrow{font-size:35px!important;}}
+
+</style>
+
+<style id="about-copy-style">.about-story-copy p{font-family:'Poppins',sans-serif!important;font-size:11px!important;font-weight:300!important;font-style:normal!important;line-height:1.55!important;color:rgba(255,255,255,.88)!important;}</style>
+<style id="mobile-menu-match-desktop">
+@media (max-width: 700px) {
+  .navbar { display:flex!important; flex-direction:row!important; align-items:center!important; justify-content:space-between!important; gap:10px!important; height:72px!important; min-height:72px!important; padding:0 4%!important; background:rgba(11,15,20,.88)!important; backdrop-filter:blur(12px)!important; -webkit-backdrop-filter:blur(12px)!important; border-bottom:1px solid rgba(255,255,255,.08)!important; }
+  .navbar .brand-area { display:flex!important; flex:0 1 auto!important; min-width:0!important; gap:0!important; margin:0!important; }
+  .navbar .brand-logo { display:block!important; white-space:nowrap!important; font-size:clamp(11px,3.1vw,20px)!important; letter-spacing:-.5px!important; }
+  .navbar .brand-divider, .navbar .brand-description { display:none!important; }
+  .navbar .nav-links { display:flex!important; position:static!important; flex:1 1 auto!important; width:auto!important; min-width:0!important; height:auto!important; flex-direction:row!important; flex-wrap:nowrap!important; justify-content:flex-end!important; align-items:center!important; gap:clamp(6px,2vw,18px)!important; margin:0 0 0 auto!important; padding:0!important; background:transparent!important; box-shadow:none!important; opacity:1!important; visibility:visible!important; transform:none!important; }
+  .navbar .nav-links a { display:inline-flex!important; white-space:nowrap!important; font-size:clamp(9px,2.7vw,14px)!important; letter-spacing:clamp(.2px,.25vw,1.5px)!important; padding:0!important; margin:0!important; }
+  .navbar .nav-links a.nav-contact-link { min-height:0!important; padding:0!important; border:0!important; border-radius:0!important; background:transparent!important; }
+  .navbar .menu-toggle { display:none!important; }
+}
+@media (max-width: 360px) { .navbar { padding-left:2.5%!important; padding-right:2.5%!important; gap:5px!important; } .navbar .brand-logo { font-size:10px!important; } .navbar .nav-links { gap:5px!important; } .navbar .nav-links a { font-size:8px!important; letter-spacing:0!important; } }
+</style>
+
+<style id="mobile-only-reference-adjustments">
+@media (max-width: 700px) {
+  /* Mobile: preserve desktop-style nav, with a red outlined Contact button */
+  .navbar .nav-links a.nav-contact-link {
+    border: 2px solid #d91f12 !important;
+    background: #c91d10 !important;
+    box-sizing: border-box !important;
+    border-radius: 12px !important;
+    padding: 10px 16px !important;
+  }
+/* Keep a clear gap between the brand and navigation on narrow screens */
+  .navbar .brand-area { margin-right: 12px !important; flex-shrink: 0 !important; }
+  .navbar .nav-links { gap: clamp(12px, 3vw, 20px) !important; }
+  .navbar .nav-links a { letter-spacing: 0 !important; }
+}
+</style>
+
+
+<style id="mobile-final-user-adjustments">
+@media (max-width: 650px) {
+/* Mobile only: keep all five Coverage highlights in one horizontal row. */
+  #experiencias .destaques-lista { display:flex !important; flex-wrap:nowrap !important; align-items:flex-start !important; justify-content:space-between !important; gap:clamp(4px,1.6vw,10px) !important; width:100% !important; overflow:visible !important; }
+  #experiencias .destaque-item { flex:0 0 18% !important; width:18% !important; min-width:0 !important; padding:0 !important; font-size:clamp(7px,2.15vw,11px) !important; letter-spacing:0 !important; gap:7px !important; }
+  #experiencias .destaque-circulo { width:clamp(42px,15vw,68px) !important; height:clamp(42px,15vw,68px) !important; min-width:0 !important; min-height:0 !important; padding:2px !important; box-sizing:border-box !important; }
+  #experiencias .destaque-nome { display:block !important; width:100% !important; max-width:100% !important; font-size:clamp(7px,2vw,10px) !important; line-height:1.2 !important; overflow-wrap:anywhere !important; }
+}
+</style>
+
+<style id="mobile-banner-third-slide-user-rule">
+@media (max-width: 768px) {
+  .banner .slide:nth-of-type(3) {
+    display: none !important;
+  }
+}
+</style>
+
+
+<style id="ajuste-banner-mobile-sem-bordas">
+/* Mobile: banner com 102svh e imagem centralizada em 100% de largura e altura. */
+@media (max-width: 768px) {
+  .banner {
+    width: 100% !important;
+    height: 102svh !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+  .banner .slide {
+    position: absolute !important;
+    inset: auto !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: translate(-50%, -50%) !important;
+  }
+}
+</style>
+
+
+
+
+<style id="about-reel-match-bastidores-layout">
+/* Sobre Nós: mesmo tamanho, espaçamento e setas do carrossel Bastidores do Portfólio. */
+.about-reel-wrap{max-width:1288px!important;width:calc(100% - 96px)!important;padding:0!important;margin:0 auto!important;position:relative!important;overflow:visible!important}
+.about-reel-viewport{display:block!important;width:100%!important;max-width:100%!important;overflow:hidden!important;flex:none!important}
+.about-reel-track{display:flex!important;flex-wrap:nowrap!important;gap:22px!important;width:max-content!important;max-width:none!important;overflow:visible!important;padding:2px 1px 10px!important;scroll-snap-type:none!important;scroll-behavior:auto!important;will-change:transform;cursor:default!important}
+.about-reel-card{flex:0 0 calc((min(100vw - 96px, 1288px) - 88px)/5)!important;width:calc((min(100vw - 96px, 1288px) - 88px)/5)!important;min-width:0!important;aspect-ratio:.67!important;overflow:hidden!important;scroll-snap-align:start!important}
+.about-reel-arrow{position:absolute!important;top:50%!important;transform:translateY(-50%)!important;width:38px!important;height:38px!important;flex:0 0 38px!important;border:1px solid rgba(255,255,255,.35)!important;border-radius:50%!important;background:rgba(255,255,255,.08)!important;color:#fff!important;font-size:0!important;line-height:1!important;box-shadow:none!important;z-index:5!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:0!important}
+.about-reel-arrow:hover{background:#a7192d!important;border-color:#a7192d!important;transform:translateY(-50%)!important}
+.about-reel-arrow.prev{left:-48px!important;padding:0!important}
+.about-reel-arrow.next{right:-48px!important;padding:0!important}
+.about-reel-arrow.prev::before{content:"‹";font-size:28px;line-height:1;display:block;position:relative;top:-1px;left:-1px}
+.about-reel-arrow.next::before{content:"›";font-size:28px;line-height:1;display:block;position:relative;top:-1px;left:1px}
+@media(max-width:1250px){.about-reel-wrap{width:calc(100% - 76px)!important}.about-reel-track{gap:16px!important}.about-reel-card{flex-basis:calc((100% - 48px)/4)!important;width:calc((100% - 48px)/4)!important}.about-reel-arrow.prev{left:-38px!important}.about-reel-arrow.next{right:-38px!important}}
+@media(max-width:900px){.about-reel-wrap{width:calc(100% - 68px)!important}.about-reel-track{gap:18px!important}.about-reel-card{flex-basis:calc((100% - 36px)/3)!important;width:calc((100% - 36px)/3)!important}.about-reel-arrow.prev{left:-34px!important}.about-reel-arrow.next{right:-34px!important}}
+@media(max-width:600px){.about-reel-wrap{width:calc(100% - 48px)!important}.about-reel-track{gap:12px!important}.about-reel-card{flex-basis:calc((100% - 12px)/2)!important;width:calc((100% - 12px)/2)!important}.about-reel-arrow{width:30px!important;height:30px!important;flex-basis:30px!important}.about-reel-arrow.prev{left:-15px!important}.about-reel-arrow.next{right:-15px!important}.about-reel-arrow.prev::before,.about-reel-arrow.next::before{font-size:24px;top:-1px}}
+</style>
+
+
+<style id="borda-clara-carrossel-sobre">
+/* Borda branca suave nas fotos do carrossel Sobre Nós, igual ao Portfólio. */
+.about-reel-card{border:1px solid rgba(255,255,255,.35)!important;border-radius:4px!important;box-sizing:border-box!important;}
+.about-reel-card img,.about-reel-card video{border-radius:3px!important;}
+</style>
+
+
+<style id="mobile-brand-logo-font-size-14px">
+/* Ajuste solicitado: nome VITOR MATOS maior no menu mobile, nas duas páginas. */
+@media (max-width: 760px) {
+  .navbar .brand-logo { font-size: 14px !important; line-height: 1 !important; }
+}
+</style>
+
+<style id="mobile-menu-links-all-12px">
+/* Mobile: Sobre Nós, Portfólio e Contato com tamanho uniforme de 12px. */
+@media (max-width: 700px) {
+  .navbar .nav-links a,
+  .navbar .nav-links a.nav-contact-link {
+    font-size: 12px !important;
+  }
+}
+</style>
+
+
+<style id="acompanhe-mesma-tipografia-clientes">
+/* Replica exatamente a tipografia do título Clientes. */
+.instagram-live-about-title {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: 35px !important;
+  font-weight: 700 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -1.2px !important;
+  color: #f4f4f4 !important;
+  text-transform: none !important;
+}
+</style>
+
+<style id="ajuste-tamanho-vitor-matos-ativar-som">
+/* Ajuste solicitado: marca 24px no desktop e 14px no mobile. */
+.navbar .brand-logo { font-size: 24px !important; }
+@media (max-width: 760px) { .navbar .brand-logo { font-size: 14px !important; } }
+/* Texto de autorização de áudio. */
+#permissaoSom #tituloPermissaoSom { font-family: 'Poppins', sans-serif !important; font-size: 24px !important; text-transform: uppercase !important; }
+</style>
+
+<style id="peso-texto-permissao-igual-descricao-2020">
+/* Mesmo peso tipográfico da descrição da seção Comecei do Zero em 2020. */
+#permissaoSom .permissao-som-conteudo p:not(.permissao-som-marca){font-family:'Poppins',sans-serif!important;font-size:15px!important;font-weight:300!important;}
+</style>
+
+
+<style id="menu-tipografia-poppins-light-igual-texto">
+/* Menu com a mesma família e peso leve da descrição e da mensagem de som. */
+.navbar .nav-links a,
+.navbar .nav-links a:not(.nav-contact-link),
+.navbar .nav-links a.nav-contact-link {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 300 !important;
+}
+</style>
+
+<style id="permissao-som-tipografia-mobile-nov-2026">
+/* Ajustes exclusivos para mobile na mensagem de autorização de áudio. */
+@media (max-width: 700px) {
+  #permissaoSom #tituloPermissaoSom { font-size: 15px !important; }
+  #permissaoSom .permissao-som-conteudo p:not(.permissao-som-marca) { font-size: 13px !important; }
+}
+</style>
+
+<style id="botoes-permissao-mesma-tipografia-ativar-som">
+/* Sim e Não usam a mesma família e peso tipográfico de “Ativar som”, em desktop e mobile. */
+#permissaoSom .permissao-som-botoes button {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+}
+</style>
+
+
+<style id="instagram-profile-mobile-typography-15-13">
+/* Ajustes tipográficos exclusivos do perfil do Instagram no mobile. */
+@media (max-width: 760px) {
+  .instagram-live-profile-name strong { font-size: 15px !important; }
+  .instagram-live-description { font-size: 15px !important; }
+  .instagram-live-profile-name small { font-size: 13px !important; }
+  .instagram-live-link { font-size: 15px !important; }
+}
+</style>
+
+</head>
+
+<body data-page="sobre">
+<header class="navbar" id="navbar">
+ <div class="brand-area">
+  <a class="brand-logo" href="sobre.html#Home" aria-label="VITOR MATOS - início">VITOR MATOS</a>
+  <div class="brand-divider"></div>
+  <div class="brand-description"><span class="brand-dot"></span><span>PRODUTORA AUDIOVISUAL</span></div>
+ </div>
+ <nav class="nav-links" id="navLinks">
+  <a href="sobre.html#Home">Sobre Nós</a><a href="portfolio.html#portfolio">Portfólio</a><a class="nav-contact-link" href="https://wa.me/5511948838756?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Tenho%20interesse.">Contato</a>
+ </nav>
+ <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" type="button">☰</button>
+</header>
+
+<section id="Home" class="banner">
+ <picture class="banner-responsive-picture">
+ <source media="(max-width: 768px)" srcset="https://i.imgur.com/FEoXJD6.jpeg">
+ <img src="https://i.imgur.com/p6jEHVA.jpeg" class="slide" alt="Produção audiovisual da Rector Filmes">
+</picture>
+ <div class="overlay"></div>
+</section>
+
+<section class="about-story" id="sobre-historia" aria-label="Nossa história">
+  <div class="about-reel-wrap" aria-label="Carrossel infinito de fotos">
+  <button class="about-reel-arrow prev" type="button" aria-label="Foto anterior">‹</button>
+  <div class="about-reel" id="aboutReel" aria-label="Fotos de bastidores e produções">
+   <div class="about-reel-card"><img src="https://i.imgur.com/WnQZlYv.jpeg" alt="Foto do carrossel Sobre Nós 1" loading="lazy"></div>
+   <div class="about-reel-card"><img src="https://i.imgur.com/pTzujAd.jpeg" alt="Foto do carrossel Sobre Nós 2" loading="lazy"></div>
+   <div class="about-reel-card"><img src="https://i.imgur.com/l05NCa3.jpeg" alt="Foto do carrossel Sobre Nós 3" loading="lazy"></div>
+   <div class="about-reel-card"><img src="https://i.imgur.com/TpEOdAb.jpeg" alt="Foto do carrossel Sobre Nós 4" loading="lazy"></div>
+   <div class="about-reel-card"><img src="https://i.imgur.com/9VQmI57.jpeg" alt="Foto do carrossel Sobre Nós 5" loading="lazy"></div>
+  </div>
+  <button class="about-reel-arrow next" type="button" aria-label="Próxima foto">›</button>
+ </div>
+ <div class="about-story-inner">
+  <article class="about-story-row">
+   <div class="about-story-image"><img src="https://i.imgur.com/VKmi4EY.jpeg" alt="Fotografia de bastidores de uma produção audiovisual" loading="lazy"></div>
+   <div class="about-story-copy"><h3>Comecei do Zero em 2020</h3><p>Foi durante a pandemia da COVID-19 que dei meus primeiros passos no audiovisual. Desde então, percebi que a produção de conteúdo seria uma ferramenta essencial para o futuro dos negócios. Venho aprimorando meu olhar e minha técnica para transformar cada produção em algo que gere valor real na sua operação.</p></div>
+  </article>
+  <article class="about-story-row">
+   <div class="about-story-image"><img src="https://i.imgur.com/18JJcri.jpeg" alt="Fotografia de produção audiovisual na prática" loading="lazy"></div>
+   <div class="about-story-copy"><h3>Sua Marca Merece Mais.</h3><p>Meus clientes dominam o que fazem, mas precisam de uma comunicação à altura daquilo que entregam. É aí que entra o meu trabalho: enxergar cada negócio pela perspectiva da audiência e transformar essa visão em produções que fortalecem o seu posicionamento.</p></div>
+  </article>
+  <article class="about-story-row">
+   <div class="about-story-image"><img src="https://i.imgur.com/ukTp9lV.jpeg" alt="Equipe trabalhando nos bastidores de uma filmagem" loading="lazy"></div>
+   <div class="about-story-copy"><h3>Criatividade Com Estrutura</h3><p>Ao meu lado, Stefany Lima, minha sócia e noiva, responsável pela organização e gestão administrativa dos projetos.<br>Acreditamos na produção cinematográfica, sempre vamos nos esforçar para criar um trabalho original, e personalizado. É isso que nos move, é isso que nos mantém acordados de dia, e muitas vezes, à noite.</p></div>
+  </article>
+</div>
+</section>
+
+<section class="instagram-live-section" aria-labelledby="instagramLiveTitle">
+ <div class="instagram-live-container">
+  <div class="instagram-live-heading">
+   <h2 class="instagram-live-about-title" id="instagramLiveTitle">Acompanhe de Perto Nossos Projetos e Bastidores.</h2>
+   
+   
+  </div>
+  <div class="instagram-live-layout">
+   <div class="instagram-live-profile-card">
+    <div class="instagram-live-profile-top">
+     <span class="instagram-live-icon" aria-hidden="true">◎</span>
+     <div class="instagram-live-profile-name"><strong>VITOR MATOS</strong><span>@euvitorcine</span><small>Diretor criativo e filmmaker</small></div>
+    </div>
+    <p class="instagram-live-description">Se você quer acompanhar de perto os bastidores e todo o processo de cada produção, siga @euvitorcine.</p>
+    <a class="instagram-live-link" href="https://www.instagram.com/euvitorcine/" target="_blank" rel="noopener noreferrer">ABRIR INSTAGRAM <span aria-hidden="true">↗</span></a>
+    <p class="instagram-live-note">O perfil e as publicações são fornecidos pelo Instagram. Se o conteúdo incorporado não carregar, use o botão para abrir o perfil.</p>
+   </div>
+   <div class="instagram-live-embed-column">
+    
+    <div class="instagram-live-embed-wrap" aria-label="Conteúdo incorporado do Instagram de Vitor Matos">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/euvitorcine/" data-instgrm-version="14" style="background:#0b0f14;color:#fff;border:0;border-radius:8px;box-shadow:none;margin:0 auto;max-width:540px;min-width:250px;padding:0;width:100%;"></blockquote>
+    </div>
+   </div>
+  </div>
+  
+ </div>
+</section>
+<style>
+.instagram-live-section{background:#0b0f14;color:#f4f4f4;padding:62px 5vw 68px;font-family:'Barlow Condensed',sans-serif;border-top:1px solid rgba(255,255,255,.06)}
+.instagram-live-container{max-width:1100px;width:calc(100% - 48px);margin:0 auto}
+.instagram-live-heading{margin:0 0 28px}.instagram-live-kicker{font-size:12px;letter-spacing:3px;color:#c52a40;margin:0 0 9px;font-weight:600}.instagram-live-heading h2{font-size:clamp(30px,4vw,48px);line-height:1.04;margin:0 0 10px;font-weight:600}.instagram-live-heading>p:last-child{font-size:17px;color:#aeb4bc;margin:0}.instagram-live-heading strong{color:#f4f4f4}
+.instagram-live-layout{display:grid;grid-template-columns:minmax(270px,.82fr) minmax(320px,1.18fr);gap:28px;align-items:stretch}
+.instagram-live-profile-card{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:clamp(22px,3vw,38px);border:1px solid rgba(255,255,255,.13);border-radius:10px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));min-height:320px}
+.instagram-live-profile-top{display:flex;align-items:center;gap:15px;margin-bottom:22px}.instagram-live-icon{width:56px;height:56px;flex:0 0 56px;border:1px solid rgba(255,255,255,.3);border-radius:50%;display:grid;place-items:center;font-family:Arial,sans-serif;font-size:34px;color:#fff;background:linear-gradient(145deg,#a7192d,#34202a)}.instagram-live-profile-name{display:flex;flex-direction:column;gap:3px}.instagram-live-profile-name strong,.instagram-live-profile-name span{font-family:'Poppins',sans-serif!important}.instagram-live-profile-name strong{font-size:17px}.instagram-live-profile-name span{color:#e7e7e7;font-size:14px}.instagram-live-profile-name small{font-family:'Poppins',sans-serif!important;color:#888f99;font-size:13px;letter-spacing:.3px}
+.instagram-live-description{font-family:'Poppins',sans-serif!important;color:#b9bec5;font-size:17px;line-height:1.5;margin:0 0 24px}.instagram-live-link{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:13px 18px;border:1px solid rgba(255,255,255,.38);border-radius:5px;color:#fff;text-decoration:none;font-size:15px;font-weight:600;letter-spacing:1px;transition:background .2s,border-color .2s}.instagram-live-link:hover{background:#a7192d;border-color:#a7192d}.instagram-live-note{font-family:Arial,sans-serif;color:#737b85;font-size:11px;line-height:1.5;margin:20px 0 0}
+.instagram-live-embed-column{min-width:0;display:flex;flex-direction:column;gap:12px}.instagram-live-feed-label{display:flex;align-items:center;gap:9px;color:#bfc3c9;font-size:12px;font-weight:600;letter-spacing:2px}.instagram-live-feed-dot{width:7px;height:7px;background:#a7192d;border-radius:50%;box-shadow:0 0 10px rgba(167,25,45,.6)}.instagram-live-embed-wrap{display:flex;align-items:flex-start;justify-content:center;min-width:0;min-height:320px;overflow:hidden;border-radius:10px;background:#0b0f14;padding:12px}.instagram-live-embed-wrap .instagram-media{min-width:250px!important;width:100%!important;max-width:540px!important;background:#0b0f14!important;color:#fff!important}.instagram-live-embed-wrap iframe{background:#0b0f14!important}
+.instagram-live-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}.instagram-live-bottom span{font-size:11px;letter-spacing:2px;color:#888f99}.instagram-live-bottom a{font-size:15px;color:#f4f4f4;text-decoration:none;border-bottom:1px solid #a7192d;padding-bottom:4px}.instagram-live-bottom a:hover{color:#fff;border-color:#fff}
+@media(max-width:800px){.instagram-live-section{padding:44px 20px 48px}.instagram-live-layout{grid-template-columns:1fr}.instagram-live-profile-card{min-height:0}.instagram-live-embed-wrap{padding:8px}.instagram-live-heading h2{font-size:34px}}
+@media(max-width:420px){.instagram-live-profile-card{padding:22px 18px}.instagram-live-bottom{align-items:flex-start;flex-direction:column}.instagram-live-bottom span{line-height:1.5}}
+
+/* Barra de navegação no estilo da referência */
+.navbar{top:18px;left:13%;width:74%;height:64px;padding:0 26px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:rgba(0,0,0,.66);border:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.08);border-radius:0;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-sizing:border-box}
+.navbar.scrolled{background:rgba(0,0,0,.78)}
+.brand-area{flex:0 0 auto;gap:0}
+.brand-divider,.brand-description{display:none!important}
+.brand-logo{font-family:'Poppins',sans-serif;font-size:19px!important;font-weight:500!important;letter-spacing:-.4px!important;line-height:1!important;white-space:nowrap}
+.nav-links{margin-left:auto;display:flex;align-items:center;justify-content:flex-end;gap:24px}
+.nav-links a{font-family:'Poppins',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;color:#eee}
+.nav-links a::after{display:none}
+.nav-links a.nav-contact-link{min-height:40px;padding:0 22px;background:#c21807;border:1px solid #c21807;border-radius:8px;color:#fff;font-size:14px;font-weight:500}
+@media(max-width:1100px){.navbar{top:12px;left:3%;width:94%;height:64px;padding:0 18px;gap:12px}.nav-links{gap:clamp(10px,2vw,20px)}.nav-links a{font-size:13px}.brand-logo{font-size:18px!important}}
+@media(max-width:700px){.navbar{left:4%;width:92%;height:60px}.nav-links{gap:10px}.nav-links a{font-size:11px}.nav-links a.nav-contact-link{min-height:36px;padding:0 12px}.brand-logo{font-size:16px!important}}
+
+/* Ajuste final do menu conforme a referência: preto transparente, sem efeito fosco */
+.navbar{
+  top:18px!important; left:13%!important; width:74%!important; height:76px!important;
+  min-height:76px!important; padding:0 26px!important; box-sizing:border-box!important;
+  background:rgba(0,0,0,.58)!important;
+  -webkit-backdrop-filter:none!important; backdrop-filter:none!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+  border-bottom:1px solid rgba(255,255,255,.12)!important;
+  border-radius:22px!important; box-shadow:none!important;
+}
+.navbar.scrolled{background:rgba(0,0,0,.64)!important;box-shadow:none!important}
+@media(max-width:1100px){.navbar{left:3%!important;width:94%!important;height:72px!important;min-height:72px!important;padding:0 18px!important;border-radius:22px!important}}
+@media(max-width:700px){.navbar{left:4%!important;width:92%!important;height:66px!important;min-height:66px!important;padding:0 14px!important;border-radius:20px!important}}
+
+/* Títulos da página Sobre Nós padronizados em 35px. */
+.about-story-copy h3{font-size:35px!important;}
+.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}
+.empresas .empresas-eyebrow{font-size:35px!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:35px!important;}.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}.empresas .empresas-eyebrow{font-size:35px!important;}}
+
+</style>
+
+<style id="instagram-cards-centralizados-ajuste">
+/* Mantém o perfil legível e dá ao conteúdo do Instagram um espaço vertical para o vídeo não ser cortado. */
+.instagram-live-layout{display:grid!important;grid-template-columns:minmax(0,560px) minmax(400px,460px)!important;gap:22px!important;justify-content:center!important;align-items:stretch!important;max-width:100%!important;width:100%!important}
+.instagram-live-profile-card{width:100%!important;min-width:0!important;min-height:500px!important;height:auto!important;box-sizing:border-box!important;padding:clamp(24px,3vw,34px)!important;overflow:visible!important}
+.instagram-live-embed-column{width:100%!important;min-width:0!important;min-height:620px!important;height:auto!important;max-height:none!important;box-sizing:border-box!important;display:flex!important;align-items:stretch!important;justify-content:stretch!important;padding:0!important;border:1px solid rgba(255,255,255,.13)!important;border-radius:10px!important;background:#0b0f14!important;overflow:visible!important}
+.instagram-live-embed-wrap{width:100%!important;height:auto!important;min-width:0!important;min-height:620px!important;max-height:none!important;box-sizing:border-box!important;padding:0!important;margin:0!important;display:block!important;overflow:visible!important;border-radius:10px!important}
+.instagram-live-embed-wrap .instagram-media{width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;margin:0!important;padding:0!important;overflow:visible!important}
+.instagram-live-embed-wrap iframe{width:100%!important;max-width:100%!important;min-width:0!important;height:620px!important;min-height:620px!important;display:block!important;border:0!important;overflow:visible!important}
+@media(max-width:980px){.instagram-live-layout{grid-template-columns:minmax(0,560px)!important;gap:18px!important}.instagram-live-container{width:calc(100% - 32px)!important}}
+@media(max-width:800px){.instagram-live-layout{grid-template-columns:minmax(0,560px)!important;gap:18px!important}.instagram-live-profile-card{min-height:0!important;height:auto!important}.instagram-live-embed-column{min-height:620px!important;height:auto!important}.instagram-live-embed-wrap{min-height:620px!important}.instagram-live-embed-wrap iframe{height:620px!important;min-height:620px!important}}
+@media(max-width:420px){.instagram-live-embed-column,.instagram-live-embed-wrap{min-height:580px!important}.instagram-live-embed-wrap iframe{height:580px!important;min-height:580px!important}}
+
+/* Títulos da página Sobre Nós padronizados em 35px. */
+.about-story-copy h3{font-size:35px!important;}
+.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}
+.empresas .empresas-eyebrow{font-size:35px!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:35px!important;}.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}.empresas .empresas-eyebrow{font-size:35px!important;}}
+
+</style>
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+(function(){
+ function renderInstagram(){
+  if(window.instgrm&&window.instgrm.Embeds&&typeof window.instgrm.Embeds.process==='function')window.instgrm.Embeds.process();
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',renderInstagram);else renderInstagram();
+ window.addEventListener('load',renderInstagram);
+})();
+</script>
+
+<section class="empresas" id="clientes" aria-label="Clientes e marcas em nosso portfólio">
+ <div class="empresas-container">
+  <header class="empresas-header"><div class="empresas-eyebrow">Clientes</div></header>
+  <div class="logos-slider" aria-label="Marcas em nosso portfólio"><div class="logos-track"><div class="logos-grupo">
+   <div class="logo-cliente"><img src="https://i.postimg.cc/kgGSFYn2/Background-Eraser.png" alt="Crescieperdi" loading="lazy"></div>
+   <div class="logo-cliente"><img src="https://i.postimg.cc/Bn2crKG6/Background-Eraser.png" alt="Borelli" loading="lazy"></div>
+   <div class="logo-cliente"><img src="https://i.postimg.cc/02DVs3Yw/Background-Eraser-2.png" alt="Tatuape Conceito" loading="lazy"></div>
+   <div class="logo-cliente"><img src="https://i.postimg.cc/SN2q6cBx/Background-Eraser-4.png" alt="Loys Clinic" loading="lazy"></div>
+   <div class="logo-cliente"><img src="https://i.postimg.cc/mDkdWgwX/Background-Eraser-8.png" alt="Willian Celso" loading="lazy"></div>
+   <div class="logo-cliente"><img src="https://i.postimg.cc/fRvwyM4x/Background-Eraser-6.png" alt="Trapézio Gelateria" loading="lazy"></div>
+   <div class="logo-cliente"><img src="https://i.postimg.cc/0NZLRQgg/Background-Eraser-5.png" alt="Tayti" loading="lazy"></div>
+   <div class="logo-cliente"><img src="https://i.postimg.cc/LsM1K9tZ/Background-Eraser-9.png" alt="Plataforma Global" loading="lazy"></div>
+  </div><div class="logos-grupo">
+   <div class="logo-cliente"><img src="https://i.postimg.cc/kgGSFYn2/Background-Eraser.png" alt="Crescieperdi" loading="lazy"></div>
+   <div class="logo-cliente"><img src="https://i.postimg.cc/Bn2crKG6/Background-Eraser.png" alt="Borelli" loading="lazy"></div>
+   <div class="logo-cliente"><img src="https://i.postimg.cc/02DVs3Yw/Background-Eraser-2.png" alt="Tatuape Conceito" loading="lazy"></div>
+   <div class="logo-cliente"><img src="https://i.postimg.cc/SN2q6cBx/Background-Eraser-4.png" alt="Loys Clinic" loading="lazy"></div>
+   <div class="logo-cliente"><img src="https://i.postimg.cc/mDkdWgwX/Background-Eraser-8.png" alt="Willian Celso" loading="lazy"></div>
+   <div class="logo-cliente"><img src="https://i.postimg.cc/fRvwyM4x/Background-Eraser-6.png" alt="Trapézio Gelateria" loading="lazy"></div>
+   <div class="logo-cliente"><img src="https://i.postimg.cc/0NZLRQgg/Background-Eraser-5.png" alt="Tayti" loading="lazy"></div>
+   <div class="logo-cliente"><img src="https://i.postimg.cc/LsM1K9tZ/Background-Eraser-9.png" alt="Plataforma Global" loading="lazy"></div>
+  </div></div>
+ </div>
+</section>
+
+<footer class="site-footer">
+ <div class="footer-columns">
+  <div><h3>Início</h3><a href="sobre.html#Home">Home</a><a href="portfolio.html">Portfólio</a><a href="https://wa.me/5511948838756?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Tenho%20interesse.">Contato</a></div>
+  <div><h3>Sobre nós</h3><a href="sobre.html">Quem somos</a><a href="portfolio.html">Projetos</a><a href="https://wa.me/5511948838756?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Tenho%20interesse.">Orçamento</a></div>
+  <div><h3>Suporte</h3><a href="https://wa.me/5511948838756?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Tenho%20interesse.">FAQ</a><a href="https://wa.me/5511948838756?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Tenho%20interesse." target="_blank" rel="noopener">WhatsApp</a><a href="https://mail.google.com/mail/?view=cm&to=contato.stefany.batista.lima@gmail.com" target="_blank" rel="noopener">E-mail</a></div>
+  <div class="footer-info"><h3>Informações</h3><p>Produções cinematográficas, vídeos comerciais, posicionamento de marca e filmes publicitários.</p></div>
+ </div>
+ <div class="footer-bottom"><span>Copyright © 2026 Todos os direitos reservados.</span></div>
+</footer>
+<a class="whatsapp-scroll" href="https://wa.me/5511948838756?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Tenho%20interesse." target="_blank" rel="noopener" aria-label="Fale pelo WhatsApp"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16.02 3C8.86 3 3.04 8.72 3.04 15.78c0 2.24.6 4.43 1.75 6.35L3 29l7.1-1.84a13.2 13.2 0 0 0 5.91 1.4h.01c7.16 0 12.98-5.72 12.98-12.78A12.75 12.75 0 0 0 16.02 3Zm0 23.4h-.01c-1.85 0-3.66-.49-5.24-1.42l-.38-.22-4.21 1.09 1.12-4.05-.25-.41a10.4 10.4 0 0 1-1.61-5.61c0-5.83 4.75-10.57 10.58-10.57a10.5 10.5 0 0 1 10.58 10.57c0 5.83-4.75 10.62-10.58 10.62Zm5.8-7.93c-.32-.16-1.9-.93-2.2-1.03-.3-.11-.51-.16-.73.16-.21.32-.84 1.03-1.03 1.24-.19.22-.38.24-.7.08-.32-.16-1.35-.49-2.57-1.55-.95-.82-1.59-1.83-1.78-2.15-.19-.32-.02-.49.14-.65.14-.14.32-.38.48-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.73-1.73-1-2.37-.26-.62-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.3.32-1.13 1.1-1.13 2.67s1.16 3.09 1.32 3.3c.16.22 2.28 3.47 5.52 4.86.77.33 1.37.53 1.84.68.77.24 1.47.2 2.02.12.62-.09 1.9-.77 2.17-1.51.27-.75.27-1.38.19-1.51-.08-.13-.29-.21-.61-.37Z"/></svg><span class="whatsapp-notification" aria-label="Nova mensagem">1</span></a>
+<style>
+/* Carrossel contínuo de clientes */
+.empresas .empresas-header{ text-align:center; }
+.empresas .empresas-eyebrow{justify-content:center;display:block;font-family:'Barlow Condensed',sans-serif;font-size:clamp(20px,2.2vw,27px);font-weight:700;letter-spacing:2.2px;line-height:1.15;color:#f4f4f4;text-transform:uppercase}
+.empresas .empresas-eyebrow::before{content:none;display:none}
+.empresas .empresas-subtitle{display:none}
+.empresas .logos-slider{width:100%;overflow:hidden;padding:18px 0 24px;-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 9%,#000 91%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,#000 9%,#000 91%,transparent 100%);}
+.empresas .logos-track{display:flex;width:max-content;animation:marcasDeslizam 34s linear infinite;}
+.empresas .logos-slider:hover .logos-track{animation-play-state:paused}
+.empresas .logos-grupo{display:flex;flex:0 0 auto;align-items:center;gap:44px;padding:0 22px;}
+.empresas .logo-cliente{width:160px;min-width:160px;height:110px;padding:12px;}
+.empresas .logo-cliente img{max-width:150px;max-height:88px;}
+@keyframes marcasDeslizam{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.site-footer{background:#111820;color:#eee;border-top:1px solid rgba(255,255,255,.06);font-family:inherit}
+.footer-columns{max-width:1100px;margin:auto;padding:32px 24px 30px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:34px;text-align:center}
+.footer-columns h3{font-size:17px;margin:0 0 16px;font-weight:600;color:#f5f5f5}
+.footer-columns a{display:block;color:#c8cbd0;text-decoration:none;font-size:13px;line-height:2.2}
+.footer-columns a:hover{color:#fff}.footer-info p{font-size:13px;line-height:1.7;color:#c8cbd0;margin:0}
+.footer-bottom{min-height:86px;padding:20px 7%;display:flex;align-items:center;justify-content:center;gap:20px;text-align:center;background:#0b0f14;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:#c8cbd0}
+.footer-bottom>strong{font-size:14px;letter-spacing:1.5px;color:#fff}.footer-social{display:flex;gap:14px}.footer-social a{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#171c22;color:#fff;text-decoration:none;font-size:19px}
+.whatsapp-scroll{position:fixed;left:34px;bottom:24px;z-index:99990;width:52px;height:52px;border-radius:50%;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:32px;box-shadow:0 5px 18px #0006;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s,transform .25s,visibility .25s}
+.whatsapp-scroll.visivel{opacity:1;visibility:visible;transform:translateY(0)}
+.whatsapp-scroll svg{display:block;width:39px;height:39px;position:relative;z-index:1}
+.whatsapp-notification{position:absolute;top:-3px;right:-2px;min-width:19px;height:19px;padding:0 5px;border-radius:12px;background:#e21b12;color:#fff;font:700 11px/19px Arial,sans-serif;text-align:center;box-shadow:0 1px 4px #0007;z-index:2;border:2px solid #d71920}
+
+@media(max-width:700px){.footer-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 18px;padding:28px 18px}.footer-bottom{flex-wrap:wrap;justify-content:center;text-align:center}.footer-bottom>strong{width:100%}.empresas .logos-grupo{gap:20px}.empresas .logo-cliente{width:125px;min-width:125px}.whatsapp-scroll{left:24px;bottom:16px;width:48px;height:48px}}
+
+/* Títulos da página Sobre Nós padronizados em 35px. */
+.about-story-copy h3{font-size:35px!important;}
+.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}
+.empresas .empresas-eyebrow{font-size:35px!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:35px!important;}.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}.empresas .empresas-eyebrow{font-size:35px!important;}}
+
+</style>
+<script>
+(function(){const btn=document.querySelector('.whatsapp-scroll');if(!btn)return;function toggle(){btn.classList.toggle('visivel',window.scrollY>180);}window.addEventListener('scroll',toggle,{passive:true});toggle();})();
+</script>
+
+
+
+<section id="portfolio" class="portfolio">
+ <div class="portfolio-container">
+  <div class="portfolio-header">
+   <div class="eyebrow"><span class="portfolio-line"></span><span>PORTFÓLIO</span></div>
+   <div class="eyebrow-sub">PORTFOLIO</div>
+  </div>
+  <h1 class="recent-title">Trabalhos recentes</h1>
+  <p class="recent-subtitle">Recent work</p>
+  <div class="portfolio-row-title"><div class="row-heading"><h3>Trends verticais</h3><span class="row-subtitle">Vertical trends</span></div></div>
+  <div class="portfolio-grid" id="recentVideos"></div>
+  <div class="portfolio-row-title making-heading"><div class="row-heading"><h3>Making Of</h3><span class="row-subtitle">Behind the scenes</span></div></div>
+  <div class="portfolio-grid" id="makingOfVideos"></div>
+ </div>
+</section>
+
+<section class="destaques-rector" id="experiencias">
+ <div class="destaques-container">
+  <div class="destaques-header">
+   <div class="destaques-eyebrow">EXPERIÊNCIAS EM TEMPO REAL</div>
+   <div class="destaques-subtitle">EXPERIÊNCIAS EM TEMPO REAL</div>
+  </div>
+  <div class="destaques-lista" id="destaquesLista">
+   <button class="destaque-item" type="button" data-destaque="0" aria-label="Ver destaques Nuuvi Beauty"><span class="destaque-circulo"><img src="https://i.imgur.com/zIHrBNG.jpeg" alt="Capa Nuuvi Beauty" loading="lazy"></span><span class="destaque-nome">NUUVI BEAUY</span></button>
+   <button class="destaque-item" type="button" data-destaque="1" aria-label="Ver destaques Dental Protect"><span class="destaque-circulo"><img src="dental-protect.jpeg" alt="Capa Dental Protect" loading="lazy"></span><span class="destaque-nome">DENTAL PROTETIC</span></button>
+   <button class="destaque-item" type="button" data-destaque="2" aria-label="Ver destaques Aqua Mart"><span class="destaque-circulo"><img src="aqua-mart.jpeg" alt="Capa Aqua Mart" loading="lazy"></span><span class="destaque-nome">AQUA MART</span></button>
+   <button class="destaque-item" type="button" data-destaque="3" aria-label="Ver destaques Pedro Chen"><span class="destaque-circulo"><img src="camelo-do-china.jpeg" alt="Capa Pedro Chen" loading="lazy"></span><span class="destaque-nome">PEDRO CHEN</span></button>
+   <button class="destaque-item" type="button" data-destaque="4" aria-label="Ver destaques Produções"><span class="destaque-circulo"><img src="https://i.imgur.com/p6jEHVA.jpeg" alt="Capa Produções" loading="lazy"></span><span class="destaque-nome">PRODUÇÕES</span></button>
+  </div>
+ </div>
+</section>
+
+
+
+<!-- VISUALIZADOR DE STORIES -->
+<div class="stories-viewer sem-preview-anterior" id="storiesViewer" aria-hidden="true">
+ <div class="stories-backdrop" id="storiesBackdrop"></div>
+
+ <div class="stories-stage">
+  <div class="story-preview story-preview-left" id="storyPreviewLeft" aria-label="Destaque anterior"></div>
+
+  <div class="story-main" id="storyMain">
+   <div class="story-video-box" id="storyVideoBox">
+    <div class="story-loading" id="storyLoading"></div>
+    <div class="story-paused" id="storyPaused"><span>▶</span></div>
+   </div>
+   <div class="story-progress" id="storyProgress"></div>
+   <div class="story-topbar">
+    <div class="story-avatar"><img id="storyAvatar" src="https://i.imgur.com/zIHrBNG.jpeg" alt=""></div>
+    <div class="story-heading"><strong id="storyTitle">RECTOR FILMES</strong></div>
+    <div class="story-sound-control">
+     <input id="storyVolume" type="range" min="0" max="1" step="0.05" value="0" aria-label="Ajustar volume">
+     <button class="story-icon-button" id="storyMuteButton" type="button" aria-label="Ativar som"></button>
+    </div>
+    <button class="story-icon-button" id="storyPauseButton" type="button" aria-label="Pausar vídeo"></button>
+    <button class="stories-close" id="storiesClose" type="button" aria-label="Fechar destaques"></button>
+   </div>
+   <button class="story-click-area anterior" id="storyClickPrev" type="button" aria-label="Vídeo anterior"></button>
+   <button class="story-click-area proximo" id="storyClickNext" type="button" aria-label="Próximo vídeo"></button>
+  </div>
+
+  <div class="story-preview-right-group">
+   <div class="story-preview" id="storyPreviewRight" aria-label="Próximo destaque"></div>
+   <div class="story-preview" id="storyPreviewFarRight" aria-label="Segundo próximo destaque"></div>
+  </div>
+ </div>
+
+ <button class="story-nav-arrow anterior" id="storyPrev" type="button" aria-label="Destaque anterior">‹</button>
+ <button class="story-nav-arrow proximo" id="storyNext" type="button" aria-label="Próximo destaque">›</button>
+ <div class="story-hint">Use as setas para navegar • ESC para fechar</div>
+</div>
+
+<div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Reprodutor de vídeo">
+ <div class="video-modal-content">
+  <button class="video-modal-close" id="videoModalClose" type="button" aria-label="Fechar vídeo">&times;</button>
+  <div class="video-modal-frame" id="modalFrame"><iframe id="modalVideo" src="" title="Vídeo do portfólio Rector Filmes" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+ </div>
+</div>
+
+
+<!-- Narração: o visitante autoriza o áudio uma única vez ao entrar -->
+<audio id="narracaoFundo" preload="auto" playsinline>
+  <source src="narracao-rector.mp3" type="audio/mpeg">
+</audio>
+<div id="permissaoSom" class="permissao-som" role="dialog" aria-modal="true" aria-labelledby="tituloPermissaoSom">
+  <div class="permissao-som-conteudo">
+    <h2 id="tituloPermissaoSom">Ativar som</h2>
+    <p><span style="white-space:nowrap">Nosso site entrega uma experiência sonora</span><br><span style="white-space:nowrap">Você permite?</span></p>
+    <div class="permissao-som-botoes">
+      <button id="permitirSom" type="button">Sim</button>
+      <button id="recusarSom" type="button">Não</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const audio = document.getElementById('narracaoFundo');
+  const permissao = document.getElementById('permissaoSom');
+  const permitir = document.getElementById('permitirSom');
+  const recusar = document.getElementById('recusarSom');
+  if (!audio || !permissao || !permitir || !recusar) return;
+  // A escolha vale durante a navegação desta sessão, inclusive ao alternar entre Sobre Nós e Portfólio.
+  let decisaoSom = '';
+  try { decisaoSom = sessionStorage.getItem('vitorDecisaoSom') || ''; } catch(e) {}
+
+  // Disponibiliza a função para interromper a narração quando um vídeo for aberto.
+  window.pararNarracaoFundo = function(){
+    audio.pause();
+    audio.currentTime = 0;
+  };
+
+  function fecharPermissao(){
+    permissao.hidden = true;
+    // Garante que regras de layout específicas da página não reexibam a janela.
+    permissao.style.setProperty('display', 'none', 'important');
+    permissao.setAttribute('aria-hidden', 'true');
+  }
+
+  function iniciarNarracao(){
+    // No mobile, a trilha inicia e permanece em 50%; no desktop, mantém volume máximo.
+    audio.volume = window.matchMedia('(max-width: 768px)').matches ? 0.5 : 1;
+    audio.muted = false;
+    const tentativa = audio.play();
+    if (tentativa && typeof tentativa.catch === 'function') tentativa.catch(function(){});
+  }
+
+  if (decisaoSom === 'sim') {
+    fecharPermissao();
+    // O navegador pode bloquear áudio automático após uma nova visita; nesse caso,
+    // a primeira interação normal da pessoa com a página inicia a narração.
+    iniciarNarracao();
+    const iniciarNaInteracao = function(){
+      iniciarNarracao();
+      document.removeEventListener('pointerdown', iniciarNaInteracao, true);
+      document.removeEventListener('keydown', iniciarNaInteracao, true);
+      document.removeEventListener('touchstart', iniciarNaInteracao, true);
+    };
+    document.addEventListener('pointerdown', iniciarNaInteracao, true);
+    document.addEventListener('keydown', iniciarNaInteracao, true);
+    document.addEventListener('touchstart', iniciarNaInteracao, true);
+  } else if (decisaoSom === 'nao') {
+    fecharPermissao();
+  } else {
+    permitir.addEventListener('click', function(){
+      try { sessionStorage.setItem('vitorDecisaoSom', 'sim'); } catch(e) {}
+      fecharPermissao();
+      iniciarNarracao();
+    });
+  }
+
+  recusar.addEventListener('click', function(){
+    try { sessionStorage.setItem('vitorDecisaoSom', 'nao'); } catch(e) {}
+    audio.pause();
+    audio.currentTime = 0;
+    fecharPermissao();
+  });
+
+  audio.addEventListener('error', function(){
+    console.error('Falha ao carregar narracao-rector.mp3. Confira se o MP3 está na mesma pasta do index.html.');
+  });
+})();
+</script>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+/* MENU */
+const navbar=document.getElementById('navbar');
+const menuToggle=document.getElementById('menuToggle');
+const navLinks=document.getElementById('navLinks');
+
+function atualizarNavbar(){navbar.classList.toggle('scrolled',window.scrollY>30)}
+window.addEventListener('scroll',atualizarNavbar);
+atualizarNavbar();
+
+menuToggle.addEventListener('click',function(){
+ const aberto=navLinks.classList.toggle('open');
+ menuToggle.setAttribute('aria-expanded',String(aberto));
+ menuToggle.setAttribute('aria-label',aberto?'Fechar menu':'Abrir menu');
+ menuToggle.textContent=aberto?'×':'☰';
+});
+
+navLinks.querySelectorAll('a').forEach(function(link){
+ link.addEventListener('click',function(){
+  navLinks.classList.remove('open');
+  menuToggle.setAttribute('aria-expanded','false');
+  menuToggle.setAttribute('aria-label','Abrir menu');
+  menuToggle.textContent='☰';
+ });
+});
+
+/* PROJETOS */
+const projetos=[
+ {id:'1099468333',hash:'h=76e43c87b1',title:'Rosa Selvagem',description:'Uma produção visual pensada para transmitir a identidade, a atmosfera e os detalhes da marca com uma narrativa envolvente.'},
+ {id:'1189273179',hash:'h=76e43c87b1',title:'Borelli Gelateria',description:'Conteúdo audiovisual que valoriza a experiência, os produtos e os detalhes que tornam a marca memorável.'},
+ {id:'1189278924',hash:'p=0s',title:'Dra. Marcela',description:'Conteúdo estratégico para comunicar autoridade, proximidade e confiança por meio de uma linguagem visual cuidadosa.'},
+ {id:'1191342661',hash:'h=76e43c87b1',title:'Dra. Juliana Narciso',description:'Produção de conteúdo profissional com foco na presença digital, na personalidade e no posicionamento da especialista.'},
+ {id:'1190608148',hash:'p=0s',title:'Tayti Gelateria',description:'Uma abordagem visual dinâmica para destacar a experiência da marca e despertar o interesse do público.'},
+ {id:'1189273774',hash:'h=76e43c87b1',title:'Fábrica de Love',description:'Registro audiovisual de marca com atenção à narrativa, aos detalhes e à emoção presente em cada cena.'},
+ {id:'1099462212',hash:'p=0s',title:'Evento',description:'Captação dos principais momentos e da energia do evento, criando um registro visual envolvente.'},
+ {id:'1189274042',hash:'p=0s',title:'Fábrica de Love',description:'Conteúdo visual que aproxima o público da marca e evidencia os detalhes da experiência.'},
+ {id:'1189273549',hash:'p=0s',title:'Fábrica de Love — Páscoa',description:'Produção temática que destaca os produtos, os detalhes e a atmosfera especial da campanha de Páscoa.'},
+ {id:'1099459713',hash:'p=0s',title:'TV Fama',description:'Registro audiovisual de entrevista e presença de marca, com foco nos momentos mais relevantes.'},
+ {id:'1099542612',hash:'p=0s',title:'Juju Salimeni',description:'Conteúdo de personalidade com direção visual e atenção à presença e à expressividade em cena.'},
+ {id:'1189280115',hash:'p=0s',title:'Fábrica de Love — Páscoa',description:'Uma segunda perspectiva da campanha, valorizando os detalhes e a construção visual da produção.'},
+ {id:'1099461212',hash:'p=0s',title:'Paraisópolis',description:'Registro de ambiente, pessoas e momentos reais, com uma narrativa visual conectada à experiência.'},
+ {id:'1099464291',hash:'p=0s',title:'Capital Black Master Mind',description:'Cobertura audiovisual voltada a registrar ideias, conexões e os momentos marcantes da experiência.'},
+ {id:'1099468840',hash:'p=0s',title:'Underground',description:'Uma linguagem visual de atitude, ritmo e atmosfera, construída para valorizar a identidade do projeto.'}
+];
+
+const makingOf=[
+ {id:'1099554358',title:'Making Of',description:'Bastidores da produção: preparação, direção e os detalhes que acontecem antes de cada cena.'},
+ {id:'1099553815',title:'Making Of',description:'Um olhar por trás das câmeras sobre o processo criativo e a construção das imagens.'},
+ {id:'1099555900',title:'Making Of',description:'Momentos reais do set e detalhes da equipe em ação durante a produção.'},
+ {id:'1099555025',title:'Making Of',description:'A rotina de gravação, os ajustes de cena e o cuidado com cada detalhe visual.'},
+ {id:'1099555467',title:'Making Of',description:'Acompanhamento do processo de produção audiovisual com Erika Schneider, conferindo o desenvolvimento do vídeo e os detalhes da edição.'},
+ {id:'1189288930',title:'Making Of',description:'Bastidores da campanha de Guto Silva, secretário de Estado do Paraná, em Curitiba.'},
+ {id:'1189289338',title:'Making Of',description:'Direção, captação e momentos espontâneos registrados durante a produção com Dra. Juliana Narciso.'},
+ {id:'1099795275',title:'Making Of',description:'Bastidores de gravação para uma marca de acessórios com Erika Schneider.'},
+ {id:'1099778246',title:'Making Of',description:'Um registro do processo audiovisual, da preparação às cenas captadas.'},
+ {id:'1099778841',title:'Making Of',description:'Set com o Mago da Neurovendas, Karllos Della Re.'}
+];
+
+async function obterCapaVimeo(projeto){
+ const urlVideo='https://vimeo.com/'+projeto.id+(projeto.hash&&projeto.hash.startsWith('h=')?'?'+projeto.hash:'');
+ try{
+  const resposta=await fetch('https://vimeo.com/api/oembed.json?url='+encodeURIComponent(urlVideo)+'&width=1280');
+  if(!resposta.ok)throw new Error('Miniatura indisponível');
+  const dados=await resposta.json();
+  if(dados.thumbnail_url)return{url:dados.thumbnail_url,width:Number(dados.thumbnail_width)||0,height:Number(dados.thumbnail_height)||0};
+ }catch(erro){return null}
+ return null;
+}
+
+function ajustarProporcao(frame,img){
+ function aplicar(){if(img.naturalWidth>0&&img.naturalHeight>0)frame.style.aspectRatio=img.naturalWidth+'/'+img.naturalHeight}
+ img.addEventListener('load',aplicar);
+ if(img.complete)aplicar();
+}
+
+function criarCard(projeto){
+ const card=document.createElement('article');
+ card.className='video-card';
+ card.tabIndex=0;
+ card.setAttribute('role','button');
+ card.setAttribute('aria-label','Assistir: '+projeto.title);
+ const frame=document.createElement('div');
+ frame.className='video-frame';
+ const cover=document.createElement('img');
+ cover.className='video-cover';
+ cover.alt='Capa do vídeo '+projeto.title;
+ cover.loading='lazy';
+ cover.decoding='async';
+ ajustarProporcao(frame,cover);
+ const play=document.createElement('div');
+ play.className='video-play';
+ play.setAttribute('aria-hidden','true');
+ play.innerHTML='<svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.8c0-.78.85-1.26 1.52-.85l10.05 6.2a1 1 0 0 1 0 1.7l-10.05 6.2A1 1 0 0 1 8 18.2V5.8z"/></svg>';
+ const info=document.createElement('div');
+ info.className='video-info';
+ const title=document.createElement('div');
+ title.className='video-name';
+ title.textContent=projeto.title;
+ const desc=document.createElement('p');
+ desc.className='video-description';
+ desc.textContent=projeto.description;
+ info.append(title,desc);
+ frame.append(cover,play,info);
+ card.appendChild(frame);
+ let playerUrl='https://player.vimeo.com/video/'+projeto.id;
+ if(projeto.hash)playerUrl+='?'+projeto.hash;
+ card.dataset.playerSrc=playerUrl;
+ obterCapaVimeo(projeto).then(function(capa){cover.src=capa&&capa.url?capa.url:'https://vumbnail.com/'+projeto.id+'.jpg'});
+ cover.addEventListener('error',function(){
+  if(!cover.dataset.fallback){cover.dataset.fallback='1';cover.src='https://vumbnail.com/'+projeto.id+'.jpg'}
+  else cover.style.visibility='hidden';
+ });
+ return card;
+}
+
+const recentContainer=document.getElementById('recentVideos');
+projetos.forEach(function(projeto){recentContainer.appendChild(criarCard(projeto))});
+const makingContainer=document.getElementById('makingOfVideos');
+makingOf.forEach(function(projeto){makingContainer.appendChild(criarCard(projeto))});
+
+/* PLAYER MODAL DO PORTFÓLIO */
+const videoModal=document.getElementById('videoModal');
+const modalVideo=document.getElementById('modalVideo');
+const modalFrame=document.getElementById('modalFrame');
+const videoModalClose=document.getElementById('videoModalClose');
+let modalVimeoPlayer=null;
+let modalPlayerToken=0;
+
+function ajustarPlayerModal(largura,altura){
+ if(!largura||!altura||largura<=0||altura<=0)return;
+ const proporcao=largura/altura;
+ const margem=window.innerWidth<=600?24:48;
+ const larguraMaxima=window.innerWidth-margem;
+ const alturaMaxima=window.innerHeight*(window.innerWidth<=600?.88:.90);
+ let larguraFinal=Math.min(larguraMaxima,alturaMaxima*proporcao);
+ let alturaFinal=larguraFinal/proporcao;
+ if(alturaFinal>alturaMaxima){alturaFinal=alturaMaxima;larguraFinal=alturaFinal*proporcao}
+ modalFrame.style.width=larguraFinal+'px';
+ modalFrame.style.height=alturaFinal+'px';
+ modalFrame.style.aspectRatio=largura+'/'+altura;
+ modalFrame.style.maxWidth=larguraMaxima+'px';
+ modalFrame.style.maxHeight=alturaMaxima+'px';
+}
+
+function ajustarPlayerPelasDimensoesReais(token){
+ if(!modalVimeoPlayer)return;
+ Promise.all([modalVimeoPlayer.getVideoWidth(),modalVimeoPlayer.getVideoHeight()]).then(function(dimensoes){
+  if(token!==modalPlayerToken||!videoModal.classList.contains('open'))return;
+  const largura=Number(dimensoes[0]),altura=Number(dimensoes[1]);
+  if(largura>0&&altura>0)ajustarPlayerModal(largura,altura);
+ }).catch(function(){});
+}
+
+function abrirVideo(card){
+ if(window.pararNarracaoFundo)window.pararNarracaoFundo();
+ const endereco=card.dataset.playerSrc;
+ if(!endereco)return;
+ modalPlayerToken++;
+ const token=modalPlayerToken;
+ if(modalVimeoPlayer){try{modalVimeoPlayer.destroy()}catch(e){}modalVimeoPlayer=null}
+ const url=new URL(endereco);
+ url.searchParams.set('autoplay','1');
+ url.searchParams.set('title','0');
+ url.searchParams.set('byline','0');
+ url.searchParams.set('portrait','0');
+ url.searchParams.set('dnt','1');
+ url.searchParams.set('playsinline','1');
+ url.searchParams.set('controls','1');
+ url.searchParams.set('transparent','0');
+ const imagem=card.querySelector('.video-cover');
+ if(imagem&&imagem.naturalWidth&&imagem.naturalHeight)ajustarPlayerModal(imagem.naturalWidth,imagem.naturalHeight);
+ else ajustarPlayerModal(9,16);
+ modalVideo.src=url.toString();
+ videoModal.classList.add('open');
+ document.body.style.overflow='hidden';
+ videoModalClose.focus();
+ if(window.Vimeo&&window.Vimeo.Player){
+  try{
+   modalVimeoPlayer=new Vimeo.Player(modalVideo);
+   modalVimeoPlayer.ready().then(function(){if(token!==modalPlayerToken)return;ajustarPlayerPelasDimensoesReais(token)}).catch(function(){});
+  }catch(e){}
+ }
+}
+
+function fecharVideo(){
+ modalPlayerToken++;
+ videoModal.classList.remove('open');
+ if(modalVimeoPlayer){try{modalVimeoPlayer.destroy()}catch(e){}modalVimeoPlayer=null}
+ modalVideo.src='';
+ document.body.style.overflow=storiesViewer.classList.contains('aberto')?'hidden':'';
+ modalFrame.style.width='';
+ modalFrame.style.height='';
+ modalFrame.style.maxWidth='';
+ modalFrame.style.maxHeight='';
+ modalFrame.style.aspectRatio='16/9';
+}
+
+document.querySelectorAll('.video-card').forEach(function(card){
+ card.addEventListener('click',function(){abrirVideo(card)});
+ card.addEventListener('keydown',function(event){
+  if(event.key==='Enter'||event.key===' '){event.preventDefault();abrirVideo(card)}
+ });
+});
+videoModalClose.addEventListener('click',fecharVideo);
+videoModal.addEventListener('click',function(event){if(event.target===videoModal)fecharVideo()});
+window.addEventListener('resize',function(){if(videoModal.classList.contains('open')&&modalVimeoPlayer)ajustarPlayerPelasDimensoesReais(modalPlayerToken)});
+
+/* DADOS DOS DESTAQUES */
+const videoStoryExemplo='https://player.vimeo.com/video/1189278924?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1';
+
+const destaquesData=[
+ {
+  nome:'NUUVI BEAUY',
+  capa:'https://i.imgur.com/zIHrBNG.jpeg',
+  videos:[
+   'https://player.vimeo.com/video/1235823336?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235965796?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235966974?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235968845?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235969549?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235970329?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235973392?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235975493?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235976255?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235977109?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235977712?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235985294?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235980410?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235982527?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235983792?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235984522?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235986869?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235991772?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235992349?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235992571?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235993096?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235993649?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235993897?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235994186?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235994517?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235994838?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235995579?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235996530?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235997252?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1235998958?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236000270?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1'
+  ]
+ },
+ {
+  nome:'DENTAL PROTETIC',
+  capa:'dental-protect.jpeg',
+  videos:[videoStoryExemplo,videoStoryExemplo,videoStoryExemplo]
+ },
+ {
+  nome:'AQUA MART',
+  capa:'aqua-mart.jpeg',
+  videos:[videoStoryExemplo,videoStoryExemplo,videoStoryExemplo]
+ },
+ {
+  nome:'PEDRO CHEN',
+  capa:'camelo-do-china.jpeg',
+  videos:[
+   'https://player.vimeo.com/video/1236020026?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236020352?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236020927?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236021341?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236021773?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236022087?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236022465?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236022803?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236023171?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236023845?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236024640?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236025402?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236025595?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236025735?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236026004?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236026218?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1',
+   'https://player.vimeo.com/video/1236026461?title=0&byline=0&portrait=0&controls=0&autoplay=1&muted=1&playsinline=1'
+  ]
+ },
+ {
+  nome:'PRODUÇÕES',
+  capa:'https://i.imgur.com/p6jEHVA.jpeg',
+  videos:[videoStoryExemplo,videoStoryExemplo,videoStoryExemplo]
+ }
+];
+
+/* ÍCONES */
+function iconeVolume(){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15 9a5 5 0 0 1 0 6"/><path d="M18 6a9 9 0 0 1 0 12"/></svg>'}
+function iconeMudo(){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m16 9 5 6"/><path d="m21 9-5 6"/></svg>'}
+function iconePause(){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14"/><path d="M15 5v14"/></svg>'}
+function iconePlay(){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 12 7-12 7V5Z" fill="#fff" stroke="none"/></svg>'}
+function iconeFechar(){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12"/><path d="M18 6 6 18"/></svg>'}
+
+/* CONTROLES DO VISUALIZADOR */
+const storiesViewer=document.getElementById('storiesViewer');
+const storiesBackdrop=document.getElementById('storiesBackdrop');
+const storyVideoBox=document.getElementById('storyVideoBox');
+const storyLoading=document.getElementById('storyLoading');
+const storyProgress=document.getElementById('storyProgress');
+const storyTitle=document.getElementById('storyTitle');
+const storyAvatar=document.getElementById('storyAvatar');
+const storyPaused=document.getElementById('storyPaused');
+const storyPauseButton=document.getElementById('storyPauseButton');
+const storyMuteButton=document.getElementById('storyMuteButton');
+const storyVolume=document.getElementById('storyVolume');
+const storyPreviewLeft=document.getElementById('storyPreviewLeft');
+const storyPreviewRight=document.getElementById('storyPreviewRight');
+const storyPreviewFarRight=document.getElementById('storyPreviewFarRight');
+const storiesClose=document.getElementById('storiesClose');
+const storyPrevButton=document.getElementById('storyPrev');
+const storyNextButton=document.getElementById('storyNext');
+
+let destaqueAtual=0;
+let storyAtual=0;
+let storyPlayer=null;
+let storyTimer=null;
+let storyPausedState=false;
+let storyMuted=true;
+let storyVolumeAtual=0;
+let storyLoadingState=false;
+let storyPlayerToken=0;
+let previewPlayers=[];
+
+storyMuteButton.innerHTML=iconeMudo();
+storyPauseButton.innerHTML=iconePause();
+storiesClose.innerHTML=iconeFechar();
+
+function limparStoryTimer(){
+ if(storyTimer){clearInterval(storyTimer);storyTimer=null}
+}
+
+function destruirPreviewPlayers(){
+ previewPlayers.forEach(function(player){try{player.destroy()}catch(e){}});
+ previewPlayers=[];
+ storyPreviewLeft.innerHTML='';
+ storyPreviewRight.innerHTML='';
+ storyPreviewFarRight.innerHTML='';
+}
+
+function destruirStoryPlayer(){
+ limparStoryTimer();
+ if(storyPlayer){try{storyPlayer.destroy()}catch(e){}storyPlayer=null}
+}
+
+function criarBarrasProgresso(){
+ storyProgress.innerHTML='';
+ destaquesData[destaqueAtual].videos.forEach(function(_,indice){
+  const segmento=document.createElement('div');
+  segmento.className='story-progress-segment';
+  const preenchimento=document.createElement('div');
+  preenchimento.className='story-progress-fill';
+  segmento.appendChild(preenchimento);
+  if(indice<storyAtual)segmento.classList.add('concluido');
+  storyProgress.appendChild(segmento);
+ });
+}
+
+/* A BARRA ACOMPANHA O TEMPO REAL DO VÍDEO */
+function atualizarBarraProgresso(valor){
+ storyProgress.querySelectorAll('.story-progress-segment').forEach(function(segmento,indice){
+  const preenchimento=segmento.querySelector('.story-progress-fill');
+  if(indice<storyAtual){
+   segmento.classList.add('concluido');
+   preenchimento.style.width='100%';
+  }else if(indice===storyAtual){
+   segmento.classList.remove('concluido');
+   preenchimento.style.width=Math.max(0,Math.min(100,valor))+'%';
+  }else{
+   segmento.classList.remove('concluido');
+   preenchimento.style.width='0%';
+  }
+ });
+}
+
+function urlVimeoComParametros(urlOriginal){
+ try{
+  const url=new URL(urlOriginal);
+  url.searchParams.set('autoplay','1');
+  url.searchParams.set('title','0');
+  url.searchParams.set('byline','0');
+  url.searchParams.set('portrait','0');
+  url.searchParams.set('controls','0');
+  url.searchParams.set('muted',storyMuted?'1':'0');
+  url.searchParams.set('playsinline','1');
+  url.searchParams.set('dnt','1');
+  return url.toString();
+ }catch(e){return urlOriginal}
+}
+
+function atualizarDadosStory(){
+ const destaque=destaquesData[destaqueAtual];
+ storyTitle.textContent=destaque.nome;
+ storyAvatar.src=destaque.capa;
+ storiesBackdrop.style.backgroundImage='url("'+destaque.capa+'")';
+ storyMuteButton.innerHTML=storyMuted?iconeMudo():iconeVolume();
+ storyMuteButton.setAttribute('aria-label',storyMuted?'Ativar som':'Silenciar vídeo');
+ storyPauseButton.innerHTML=storyPausedState?iconePlay():iconePause();
+ storyPauseButton.setAttribute('aria-label',storyPausedState?'Reproduzir vídeo':'Pausar vídeo');
+ storiesClose.innerHTML=iconeFechar();
+ storyVolume.value=String(storyMuted?0:storyVolumeAtual);
+ storyPaused.classList.toggle('visivel',storyPausedState);
+ criarBarrasProgresso();
+}
+
+function criarPreview(container,destaqueIndice){
+ container.innerHTML='';
+ const destaque=destaquesData[destaqueIndice];
+ if(!destaque)return;
+ const iframe=document.createElement('iframe');
+ iframe.src=urlVimeoComParametros(destaque.videos[0]).replace('autoplay=1','autoplay=0');
+ iframe.title='Prévia '+destaque.nome;
+ iframe.allow='autoplay; fullscreen; picture-in-picture';
+ iframe.setAttribute('aria-hidden','true');
+ container.appendChild(iframe);
+ if(window.Vimeo&&window.Vimeo.Player){
+  try{
+   const player=new Vimeo.Player(iframe);
+   player.setMuted(true).catch(function(){});
+   player.setVolume(0).catch(function(){});
+   player.pause().catch(function(){});
+   previewPlayers.push(player);
+  }catch(e){}
+ }
+}
+
+/* ATUALIZA AS PRÉVIAS DOS DESTAQUES */
+function atualizarPreviews(){
+ destruirPreviewPlayers();
+
+ const primeiroDestaque=destaqueAtual===0;
+ storiesViewer.classList.toggle('sem-preview-anterior',primeiroDestaque);
+
+ if(window.innerWidth>900){
+  const proximo=(destaqueAtual+1)%destaquesData.length;
+  const segundoProximo=(destaqueAtual+2)%destaquesData.length;
+
+  // A prévia esquerda só aparece quando não estamos no primeiro destaque.
+  if(!primeiroDestaque){
+   const anterior=destaqueAtual-1;
+   criarPreview(storyPreviewLeft,anterior);
+  }else{
+   storyPreviewLeft.innerHTML='';
+  }
+
+  // Duas prévias à direita, mantendo a continuidade.
+  criarPreview(storyPreviewRight,proximo);
+  criarPreview(storyPreviewFarRight,segundoProximo);
+ }
+}
+
+/* CARREGA O VÍDEO E ESPERA ELE TERMINAR */
+function carregarStory(){
+ if(!storiesViewer.classList.contains('aberto'))return;
+
+ storyPlayerToken++;
+ const token=storyPlayerToken;
+ storyLoadingState=true;
+ storyPausedState=false;
+ storyPaused.classList.remove('visivel');
+ storyLoading.style.display='block';
+ destruirStoryPlayer();
+
+ const destaque=destaquesData[destaqueAtual];
+ const videoUrl=destaque.videos[storyAtual];
+ atualizarDadosStory();
+
+ const iframe=document.createElement('iframe');
+ iframe.title=destaque.nome;
+ iframe.allow='autoplay; fullscreen; picture-in-picture';
+ iframe.allowFullscreen=true;
+ iframe.src=urlVimeoComParametros(videoUrl);
+ storyVideoBox.querySelectorAll('iframe').forEach(function(el){el.remove()});
+ storyVideoBox.appendChild(iframe);
+
+ if(window.Vimeo&&window.Vimeo.Player){
+  storyPlayer=new Vimeo.Player(iframe);
+
+  storyPlayer.on('timeupdate',function(dados){
+   if(token!==storyPlayerToken||!dados)return;
+   if(typeof dados.percent==='number'){
+    atualizarBarraProgresso(dados.percent*100);
+   }
+  });
+
+  storyPlayer.on('ended',function(){
+   if(token!==storyPlayerToken)return;
+   storyLoadingState=false;
+   proximoStory();
+  });
+
+  storyPlayer.ready().then(function(){
+   if(token!==storyPlayerToken)return;
+   return storyPlayer.setMuted(storyMuted);
+  }).then(function(){
+   if(token!==storyPlayerToken||!storyPlayer)return;
+   return storyPlayer.setVolume(storyMuted?0:storyVolumeAtual);
+  }).then(function(){
+   if(token!==storyPlayerToken||!storyPlayer)return;
+   return storyPlayer.play();
+  }).then(function(){
+   if(token!==storyPlayerToken)return;
+   storyLoadingState=false;
+   storyLoading.style.display='none';
+  }).catch(function(){
+   if(token!==storyPlayerToken)return;
+   storyLoadingState=false;
+   storyLoading.style.display='none';
+  });
+ }else{
+  iframe.addEventListener('load',function(){
+   if(token!==storyPlayerToken)return;
+   storyLoadingState=false;
+   storyLoading.style.display='none';
+  },{once:true});
+
+  setTimeout(function(){
+   if(token===storyPlayerToken&&storyLoadingState){
+    storyLoadingState=false;
+    storyLoading.style.display='none';
+   }
+  },4000);
+ }
+}
+
+function abrirDestaque(indice){
+ if(window.pararNarracaoFundo)window.pararNarracaoFundo();
+ if(indice<0||indice>=destaquesData.length)return;
+ destaqueAtual=indice;
+ storyAtual=0;
+ storyPausedState=false;
+ storyMuted=true;
+ storyVolumeAtual=0;
+ storiesViewer.classList.add('aberto');
+ storiesViewer.setAttribute('aria-hidden','false');
+ document.body.style.overflow='hidden';
+ atualizarPreviews();
+ carregarStory();
+ storiesClose.focus();
+}
+
+function fecharDestaque(){
+ storiesViewer.classList.remove('aberto');
+ storiesViewer.classList.remove('sem-preview-anterior');
+ storiesViewer.setAttribute('aria-hidden','true');
+ destruirStoryPlayer();
+ destruirPreviewPlayers();
+ storyVideoBox.querySelectorAll('iframe').forEach(function(el){el.remove()});
+ storyLoading.style.display='none';
+ storyLoadingState=false;
+ storyPausedState=false;
+ storyPaused.classList.remove('visivel');
+ document.body.style.overflow=videoModal.classList.contains('open')?'hidden':'';
+}
+
+function proximoStory(){
+ if(storyLoadingState)return;
+ const quantidade=destaquesData[destaqueAtual].videos.length;
+ if(storyAtual<quantidade-1){
+  storyAtual++;
+  carregarStory();
+ }else{
+  proximoDestaque();
+ }
+}
+
+function storyAnterior(){
+ if(storyLoadingState)return;
+ if(storyAtual>0){
+  storyAtual--;
+  carregarStory();
+ }else{
+  if(destaqueAtual===0)return;
+  destaqueAtual--;
+  storyAtual=destaquesData[destaqueAtual].videos.length-1;
+  atualizarPreviews();
+  carregarStory();
+ }
+}
+
+function proximoDestaque(){
+ destaqueAtual=(destaqueAtual+1)%destaquesData.length;
+ storyAtual=0;
+ atualizarPreviews();
+ carregarStory();
+}
+
+function destaqueAnterior(){
+ if(destaqueAtual===0)return;
+ destaqueAtual--;
+ storyAtual=0;
+ atualizarPreviews();
+ carregarStory();
+}
+
+function alternarPausa(){
+ if(!storyPlayer)return;
+ storyPausedState=!storyPausedState;
+ storyPaused.classList.toggle('visivel',storyPausedState);
+ storyPauseButton.innerHTML=storyPausedState?iconePlay():iconePause();
+ storyPauseButton.setAttribute('aria-label',storyPausedState?'Reproduzir vídeo':'Pausar vídeo');
+ if(storyPausedState)storyPlayer.pause().catch(function(){});
+ else storyPlayer.play().catch(function(){});
+}
+
+function alternarSom(){
+ storyMuted=!storyMuted;
+ if(!storyMuted&&storyVolumeAtual===0)storyVolumeAtual=.5;
+ storyMuteButton.innerHTML=storyMuted?iconeMudo():iconeVolume();
+ storyMuteButton.setAttribute('aria-label',storyMuted?'Ativar som':'Silenciar vídeo');
+ storyVolume.value=String(storyMuted?0:storyVolumeAtual);
+ if(storyPlayer){
+  storyPlayer.setMuted(storyMuted).catch(function(){});
+  storyPlayer.setVolume(storyMuted?0:storyVolumeAtual).catch(function(){});
+ }
+}
+
+function mudarVolume(valor){
+ storyVolumeAtual=Number(valor);
+ storyMuted=storyVolumeAtual===0;
+ storyMuteButton.innerHTML=storyMuted?iconeMudo():iconeVolume();
+ storyMuteButton.setAttribute('aria-label',storyMuted?'Ativar som':'Silenciar vídeo');
+ if(storyPlayer){
+  storyPlayer.setMuted(storyMuted).catch(function(){});
+  storyPlayer.setVolume(storyVolumeAtual).catch(function(){});
+ }
+}
+
+/* CLIQUE NAS BOLINHAS */
+document.querySelectorAll('.destaque-item').forEach(function(botao){
+ botao.addEventListener('click',function(){abrirDestaque(Number(botao.dataset.destaque))});
+});
+
+/* BOTÕES DO VISUALIZADOR */
+storiesClose.addEventListener('click',fecharDestaque);
+storyNextButton.addEventListener('click',proximoDestaque);
+storyPrevButton.addEventListener('click',destaqueAnterior);
+document.getElementById('storyClickNext').addEventListener('click',proximoStory);
+document.getElementById('storyClickPrev').addEventListener('click',storyAnterior);
+storyPauseButton.addEventListener('click',alternarPausa);
+storyMuteButton.addEventListener('click',alternarSom);
+storyVolume.addEventListener('input',function(){mudarVolume(this.value)});
+
+storyPreviewLeft.addEventListener('click',function(){destaqueAnterior()});
+storyPreviewRight.addEventListener('click',function(){proximoDestaque()});
+storyPreviewFarRight.addEventListener('click',function(){
+ destaqueAtual=(destaqueAtual+2)%destaquesData.length;
+ storyAtual=0;
+ atualizarPreviews();
+ carregarStory();
+});
+
+/* TECLADO */
+document.addEventListener('keydown',function(event){
+ if(videoModal.classList.contains('open')&&event.key==='Escape'){fecharVideo();return}
+ if(!storiesViewer.classList.contains('aberto'))return;
+ if(event.key==='Escape')fecharDestaque();
+ else if(event.key==='ArrowRight')proximoStory();
+ else if(event.key==='ArrowLeft')storyAnterior();
+ else if(event.key===' '){event.preventDefault();alternarPausa()}
+});
+
+/* REDIMENSIONAMENTO */
+let storyResizeTimer;
+window.addEventListener('resize',function(){
+ clearTimeout(storyResizeTimer);
+ storyResizeTimer=setTimeout(function(){
+  if(storiesViewer.classList.contains('aberto'))atualizarPreviews();
+ },180);
+});
+
+document.addEventListener('keydown',function(event){
+ if(event.key==='Escape'&&videoModal.classList.contains('open'))fecharVideo();
+});
+</script>
+<script>
+(function(){
+ const reel=document.getElementById('aboutReel');
+ if(!reel || reel.dataset.loopReady==='true')return;
+ const wrap=reel.closest('.about-reel-wrap');
+ const prev=wrap && wrap.querySelector('.about-reel-arrow.prev');
+ const next=wrap && wrap.querySelector('.about-reel-arrow.next');
+ const originals=Array.from(reel.children);
+ if(!wrap || !prev || !next || !originals.length)return;
+ reel.dataset.loopReady='true';
+ const viewport=document.createElement('div');
+ viewport.className='about-reel-viewport';
+ reel.parentNode.insertBefore(viewport,reel);
+ viewport.appendChild(reel);
+ reel.classList.add('about-reel-track');
+ originals.forEach(card=>reel.appendChild(card.cloneNode(true)));
+ let position=0, pausedByHover=false, manualMode=false, lastTime=0, resumeTimer=null;
+ const speed=22;
+ const resumeDelay=1200;
+ function gapSize(){const css=getComputedStyle(reel);const value=css.columnGap&&css.columnGap!=='normal'?css.columnGap:css.gap;const parsed=parseFloat(value);return Number.isFinite(parsed)?parsed:0;}
+ function stepSize(){const card=originals[0];return (card?card.getBoundingClientRect().width:180)+gapSize();}
+ function loopWidth(){const widths=originals.reduce((sum,card)=>sum+card.getBoundingClientRect().width,0);return widths+gapSize()*originals.length;}
+ function normalize(){const loop=loopWidth();if(loop>0)position=((position%loop)+loop)%loop;}
+ function render(){reel.style.transform='translate3d('+Math.round(-position)+'px,0,0)';}
+ function animate(time){
+   if(!lastTime)lastTime=time;
+   const delta=Math.min((time-lastTime)/1000,.05);lastTime=time;
+   if(!manualMode&&!pausedByHover)position+=speed*delta;
+   normalize();render();requestAnimationFrame(animate);
+ }
+ function move(direction){
+   manualMode=true;
+   if(resumeTimer)clearTimeout(resumeTimer);
+   position+=direction*stepSize();
+   normalize();
+   reel.style.transition='transform 650ms cubic-bezier(.22,.61,.36,1)';
+   render();
+   if(reel._arrowTransitionTimer)clearTimeout(reel._arrowTransitionTimer);
+   reel._arrowTransitionTimer=setTimeout(()=>{reel.style.transition='none';},680);
+   // Retoma o movimento automático pouco depois do último clique,
+   // a menos que o cursor ainda esteja sobre o carrossel.
+   resumeTimer=setTimeout(()=>{manualMode=false;lastTime=0;},resumeDelay);
+ }
+ prev.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();move(-1);});
+ next.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();move(1);});
+ prev.addEventListener('pointerdown',event=>event.stopPropagation());
+ next.addEventListener('pointerdown',event=>event.stopPropagation());
+ viewport.addEventListener('mouseenter',()=>{pausedByHover=true;});
+ viewport.addEventListener('mouseleave',()=>{pausedByHover=false;});
+ wrap.addEventListener('focusin',()=>{pausedByHover=true;});
+ wrap.addEventListener('focusout',()=>{pausedByHover=false;});
+ document.addEventListener('visibilitychange',()=>{pausedByHover=document.hidden;lastTime=0;});
+ window.addEventListener('resize',()=>{normalize();render();});
+ reel.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.style.visibility='hidden';}));
+ requestAnimationFrame(animate);
+})();
+</script>
+
+<div class="floating-page-arrows" aria-label="Ir para o portfólio">
+ <a href="portfolio.html" aria-label="Ver portfólio" title="Ver Portfólio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>VER PORTFÓLIO</span></a>
+</div>
+
+<style id="ajustes-scroll-final">
+/* Links flutuantes só aparecem depois de sair do banner */
+.floating-page-arrows{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:translateY(12px)!important;transition:opacity .25s ease,transform .25s ease,visibility .25s ease!important;}
+.floating-page-arrows.visivel{opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:translateY(0)!important;}
+/* Ícone do WhatsApp branco, sem círculo/fundo verde */
+.whatsapp-scroll{background:transparent!important;box-shadow:none!important;color:#fff!important;}
+.whatsapp-scroll svg{color:#fff!important;fill:none!important;}
+.whatsapp-scroll svg path{fill:currentColor!important;}
+
+/* Títulos da página Sobre Nós padronizados em 35px. */
+.about-story-copy h3{font-size:35px!important;}
+.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}
+.empresas .empresas-eyebrow{font-size:35px!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:35px!important;}.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}.empresas .empresas-eyebrow{font-size:35px!important;}}
+
+/* VER PORTFÓLIO: mantém o fundo original, sem camada transparente nem sombra adicionada; só o texto fica vermelho. */
+.floating-page-arrows > a{color:#fff!important;}
+.floating-page-arrows > a svg{color:#fff!important;stroke:#fff!important;}
+.floating-page-arrows > a span{color:#fff!important;text-shadow:none!important;}
+
+</style>
+<script id="controle-links-flutuantes">
+(function(){function atualizar(){var rolou=window.scrollY>180;document.querySelectorAll('.floating-page-arrows').forEach(function(el){el.classList.toggle('visivel',rolou);});}window.addEventListener('scroll',atualizar,{passive:true});window.addEventListener('load',atualizar);atualizar();})();
+</script>
+
+
+<style id="ajustes-posicao-rodape-flutuantes-final">
+/* Mantém VITOR MATOS na posição original e centraliza somente o texto de direitos autorais */
+.footer-bottom{position:relative!important;}
+.footer-bottom>strong{position:absolute!important;left:7%!important;top:50%!important;transform:translateY(-50%)!important;width:auto!important;text-align:left!important;}
+.footer-bottom>span{display:block!important;width:100%!important;text-align:center!important;margin:0 auto!important;}
+/* Aproxima o link VER PORTFÓLIO um pouco da borda interna */
+.floating-page-arrows{right:48px!important;}
+/* Move o WhatsApp um pouco para a direita sem alterar o visual branco */
+.whatsapp-scroll{left:42px!important;}
+@media(max-width:600px){.footer-bottom>strong{left:18px!important}.floating-page-arrows{right:22px!important}.whatsapp-scroll{left:30px!important}}
+
+/* Títulos da página Sobre Nós padronizados em 35px. */
+.about-story-copy h3{font-size:35px!important;}
+.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}
+.empresas .empresas-eyebrow{font-size:35px!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:35px!important;}.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}.empresas .empresas-eyebrow{font-size:35px!important;}}
+
+</style>
+
+<style id="instagram-grade-inteira-ajuste">
+/* Amplia a área do Instagram para a grade de miniaturas não ficar cortada */
+.instagram-live-container{max-width:1200px!important;width:calc(100% - 48px)!important}
+.instagram-live-layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:22px!important}
+.instagram-live-embed-column,.instagram-live-embed-wrap{min-width:0!important;width:100%!important;overflow:visible!important;box-sizing:border-box!important}
+.instagram-live-embed-wrap{padding:0!important}
+.instagram-live-embed-wrap .instagram-media{width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important}
+.instagram-live-embed-wrap iframe{width:100%!important;max-width:100%!important;min-width:0!important;display:block!important}
+@media(max-width:800px){.instagram-live-container{width:calc(100% - 32px)!important}.instagram-live-layout{grid-template-columns:minmax(0,1fr)!important}.instagram-live-embed-column,.instagram-live-embed-wrap{width:100%!important}}
+
+/* Títulos da página Sobre Nós padronizados em 35px. */
+.about-story-copy h3{font-size:35px!important;}
+.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}
+.empresas .empresas-eyebrow{font-size:35px!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:35px!important;}.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}.empresas .empresas-eyebrow{font-size:35px!important;}}
+
+</style>
+
+<style>
+/* Tipografia consistente nos títulos da seção Sobre Nós */
+.about-story-copy h3{font-family:'Barlow Condensed',sans-serif!important;font-size:clamp(20px,2.2vw,27px)!important;font-weight:700!important;letter-spacing:2.2px!important;line-height:1.15!important;text-transform:none!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:clamp(20px,2.2vw,27px)!important;}}
+.empresas .empresas-eyebrow{text-transform:none!important;}
+
+/* Títulos da seção Sobre Nós e título das marcas: tamanho solicitado */
+.about-story-copy h3{font-size:30px!important;}
+.empresas .empresas-eyebrow{font-size:30px!important;text-transform:none!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:30px!important;}}
+
+/* Títulos da página Sobre Nós padronizados em 35px. */
+.about-story-copy h3{font-size:35px!important;}
+.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}
+.empresas .empresas-eyebrow{font-size:35px!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:35px!important;}.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}.empresas .empresas-eyebrow{font-size:35px!important;}}
+
+</style>
+
+
+<script id="corrigir-travamento-rolagem-final">
+(function(){
+  function liberarRolagemSeFechado(){
+    var stories=document.getElementById('storiesViewer');
+    var video=document.getElementById('videoModal');
+    var storiesAberto=!!(stories && stories.classList.contains('aberto'));
+    var videoAberto=!!(video && video.classList.contains('open'));
+    if(!storiesAberto && !videoAberto){
+      document.documentElement.style.overflow='';
+      document.body.style.overflow='';
+      document.body.style.position='';
+      document.body.style.touchAction='';
+    }
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',liberarRolagemSeFechado);
+  else liberarRolagemSeFechado();
+  window.addEventListener('pageshow',liberarRolagemSeFechado);
+  window.addEventListener('load',liberarRolagemSeFechado);
+  ['storiesViewer','videoModal'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el && window.MutationObserver){
+      new MutationObserver(liberarRolagemSeFechado).observe(el,{attributes:true,attributeFilter:['class']});
+    }
+  });
+})();
+</script>
+
+
+<style id="about-story-images-subtle-white-borders">
+/* Borda clara consistente nas fotos da história de Sobre Nós. */
+.about-story .about-story-image { border: 1px solid rgba(255,255,255,.22) !important; box-sizing: border-box !important; overflow: hidden !important; }
+.about-story .about-story-image img { border: 0 !important; box-sizing: border-box !important; }
+.about-story .about-story-end img { border: 1px solid rgba(255,255,255,.22) !important; box-sizing: border-box !important; }
+</style>
+
+
+<style id="about-reel-mobile-match-bastidores-final">
+/* Somente mobile: carrossel Sobre Nós com as mesmas dimensões do carrossel Bastidores. Desktop preservado. */
+@media (max-width:600px){
+ /* Estende a área até perto das bordas: a foto começa alinhada ao meio das setas, como em Bastidores. */
+ .about-reel-wrap{width:calc(100% - 8px)!important;max-width:none!important;padding:0!important;margin:0 auto!important;box-sizing:border-box!important;}
+ .about-reel-viewport{width:100%!important;max-width:100%!important;overflow:hidden!important;}
+ .about-reel-track{gap:12px!important;width:max-content!important;max-width:none!important;flex-wrap:nowrap!important;padding:2px 1px 10px!important;}
+ .about-reel-card{flex:0 0 calc((100vw - 56px)/2)!important;width:calc((100vw - 56px)/2)!important;min-width:0!important;max-width:calc((100vw - 56px)/2)!important;aspect-ratio:.67!important;box-sizing:border-box!important;}
+ .about-reel-arrow{width:30px!important;height:30px!important;flex-basis:30px!important;}
+ .about-reel-arrow.prev{left:-15px!important;}
+ .about-reel-arrow.next{right:-15px!important;}
+}
+</style>
+
+
+<style id="about-reel-remove-edge-shadows-mobile">
+/* Somente no mobile: remove o degradê/sombra nas duas extremidades do carrossel. */
+@media (max-width: 600px) {
+  .about-reel-viewport {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+}
+</style>
+
+
+<style id="carrossel-mobile-sobrepoe-banner">
+@media (max-width: 768px) {
+  /* O carrossel sobe e sobrepõe discretamente a base do banner apenas no mobile. */
+  #sobre-historia.about-story {
+    position: relative !important;
+    z-index: 3 !important;
+    margin-top: -91px !important;
+    padding-top: 8px !important;
+  }
+}
+</style>
+
+
+<style id="mobile-navlinks-same-background-as-navbar-final">
+/* Mobile: nav-links usa exatamente a mesma cor da cápsula principal do menu. */
+@media (max-width: 650px) {
+  .navbar .nav-links,
+  .navbar .nav-links:hover,
+  .navbar .nav-links:focus,
+  .navbar .nav-links:focus-within,
+  .navbar .nav-links:active {
+    background: rgba(0,0,0,.58) !important;
+    background-color: rgba(0,0,0,.58) !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+  }
+}
+</style>
+
+
+<style id="mobile-nav-links-remove-frost-final">
+@media (max-width: 650px) {
+  .navbar .nav-links,
+  .navbar .nav-links.open,
+  .navbar .nav-links.active,
+  .navbar .nav-links:hover,
+  .navbar .nav-links:focus,
+  .navbar .nav-links:focus-within,
+  .navbar .nav-links:active {
+    background: transparent !important;
+    background-color: transparent !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    filter: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    outline: 0 !important;
+  }
+}
+</style>
+
+
+<style id="mobile-hamburger-menu-reference-final">
+/* Mobile: mostrar somente o botão de três barras; abrir links ao tocar. */
+@media (max-width: 700px) {
+  .navbar .menu-toggle { display: block !important; flex: 0 0 auto !important; margin-left: auto !important; padding: 0 2px !important; color: #e21b0c !important; font-size: 29px !important; line-height: 1 !important; background: transparent !important; border: 0 !important; box-shadow: none !important; }
+  .navbar .nav-links { display: none !important; position: absolute !important; top: calc(100% + 10px) !important; right: 0 !important; left: auto !important; width: min(220px, 86vw) !important; min-width: 0 !important; height: auto !important; padding: 10px 0 !important; margin: 0 !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 0 !important; background: transparent !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  .navbar .nav-links.open, .navbar .nav-links.active { display: flex !important; }
+  .navbar .nav-links a { display: block !important; width: 100% !important; padding: 10px 12px !important; text-align: center !important; font-size: 13px !important; line-height: 1.25 !important; color: #f2f2f2 !important; background: transparent !important; border: 0 !important; }
+  .navbar .nav-links a.nav-contact-link { width: auto !important; min-width: 0 !important; margin: 4px auto 0 !important; padding: 7px 14px !important; font-size: 11px !important; line-height: 1.2 !important; letter-spacing: 1px !important; border-radius: 5px !important; }
+}
+@media (min-width: 701px) { .navbar .menu-toggle { display: none !important; } }
+</style>
+
+<style id="mobile-menu-centered-contact-smaller">
+@media (max-width:700px) { .navbar .nav-links { align-items:center !important; justify-content:center !important; } .navbar .nav-links a { text-align:center !important; font-size:13px !important; padding:10px 12px !important; } .navbar .nav-links a.nav-contact-link { width:auto !important; min-width:0 !important; margin:4px auto 0 !important; padding:7px 14px !important; font-size:11px !important; line-height:1.2 !important; letter-spacing:1px !important; border-radius:5px !important; } }
+</style>
+
+<style id="mobile-portfolio-red-soft-glow-final">
+@media (max-width: 650px) {
+  .navbar .nav-links a[href*="portfolio.html"] {
+    position: relative !important;
+    z-index: 0 !important;
+    color: #e3261b !important;
+    font-weight: 600 !important;
+    text-shadow: 0 0 7px rgba(220, 28, 18, .28) !important;
+  }
+  .navbar .nav-links a[href*="portfolio.html"]::before {
+    content: "" !important;
+    position: absolute !important;
+    z-index: -1 !important;
+    left: -18px !important; right: -18px !important; top: -9px !important; bottom: -9px !important;
+    border-radius: 10px !important;
+    background: radial-gradient(ellipse at center, rgba(190, 22, 13, .22) 0%, rgba(190, 22, 13, .10) 48%, rgba(190, 22, 13, 0) 78%) !important;
+    filter: blur(5px) !important;
+    pointer-events: none !important;
+  }
+}
+</style>
+
+
+<style id="fix-menu-portfolio-white-final">
+/* O item Portfólio do menu mobile deve ficar branco; o vermelho pertence somente ao texto VER PORTFÓLIO. */
+@media (max-width: 650px) {
+  .navbar .nav-links a[href*="portfolio.html"] { color: #f2f2f2 !important; text-shadow: none !important; }
+  .navbar .nav-links a[href*="portfolio.html"]::before { display: none !important; content: none !important; }
+}
+</style>
+
+<style id="navbar-background-user-request-final">
+  .navbar,
+  .navbar.scrolled {
+    background: rgba(7, 9, 12, .72) !important;
+  }
+</style>
+
+<style id="footer-font-match-menu">
+/* Rodapé: mesma família tipográfica dos links do menu (Poppins), em desktop e mobile. */
+.site-footer,
+.site-footer *,
+.site-copyright,
+.site-copyright * {
+  font-family: 'Poppins', sans-serif !important;
+}
+</style>
+
+<style id="sobre-titulo-bastidores-identico-portfolio">
+/* Título Bastidores em Sobre Nós: replica a tipografia do título Bastidores da página Portfólio. */
+.empresas .empresas-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: 35px !important;
+  font-weight: 700 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -1.2px !important;
+  color: #f4f4f4 !important;
+  text-transform: none !important;
+}
+</style>
+
+<style id="titulo-bastidores-igual-portfolio">
+/* Replica no título da seção Sobre Nós a tipografia de .recent-title do Portfólio. */
+.empresas .empresas-header .empresas-eyebrow{font-family:inherit!important;font-size:35px!important;font-weight:700!important;line-height:1.08!important;letter-spacing:-1.2px!important;text-transform:none!important;color:#f4f4f4!important;}
+.empresas .empresas-header .empresas-eyebrow::before{display:none!important;content:none!important;}
+</style>
+
+<style id="instagram-title-copied-clientes-typography">
+#instagramLiveTitle {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: 35px !important;
+  font-weight: 700 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -1.2px !important;
+  color: #f4f4f4 !important;
+  text-transform: none !important;
+}
+</style>
+
+
+<style id="clientes-titulo-35px-final">
+/* Ajuste solicitado: somente o título Clientes permanece em 35px também no mobile. */
+.instagram-live-about-title { font-size: 35px !important; }
+</style>
+
+
+<style id="instagram-nome-e-usuario-tipografia-menu">
+/* Vitor Matos e @euvitorcine usam a mesma família, peso e espaçamento do nome no menu. */
+.instagram-live-profile-name strong,
+.instagram-live-profile-name span {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.4px !important;
+}
+</style>
+
+<style id="footer-text-desktop-15px-b9bec5">
+/* Textos e links do rodapé: 15px e #b9bec5 somente no desktop. */
+@media (min-width: 701px) {
+  .site-footer .footer-columns a,
+  .site-footer .footer-info p,
+  .site-footer .footer-bottom > span {
+    font-size: 15px !important;
+    color: #b9bec5 !important;
+  }
+}
+</style>
+
+<style id="rodape-mobile-tipografia-nov-2026">
+/* Ajustes exclusivos do rodapé e do link Ver Portfólio no mobile. */
+@media (max-width: 768px) {
+  .site-footer .footer-columns h3 { font-size: 13px !important; }
+  .site-footer .footer-columns a,
+  .site-footer .footer-info p { font-size: 11px !important; }
+  .site-footer .footer-bottom > span { font-size: 11px !important; }
+  .floating-page-arrows a span { font-size: 11px !important; }
+}
+</style>
+
+
+</body>
+
+<style id="marcas-mesma-tipografia-bastidores">
+/* Página Sobre Nós: título Marcas com a mesma tipografia do título Bastidores no Portfólio. */
+.empresas .empresas-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: 35px !important;
+  font-weight: 700 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -1.2px !important;
+  color: #f4f4f4 !important;
+  text-transform: none !important;
+}
+@media (max-width: 650px) {
+  .empresas .empresas-eyebrow { font-size: 35px !important; }
+}
+</style>
+
+<style id="sobre-bastidores-font-size-final">
+/* Única alteração: tamanho do título Bastidores na página Sobre Nós. */
+.empresas .empresas-eyebrow { font-size: 35px !important; }
+@media (max-width: 650px) { .empresas .empresas-eyebrow { font-size: 35px !important; } }
+</style>
+</html>
+<style id="rodape-tipografia-marcas-sem-assinatura">
+/* Rodapé com a mesma tipografia do título Marcas */
+.site-footer .footer-columns h3,
+.site-footer .footer-columns a,
+.site-footer .footer-info p {
+  font-family:'Barlow Condensed',sans-serif!important;
+  font-weight:700!important;
+  letter-spacing:2.2px!important;
+}
+.site-footer .footer-columns h3 {font-size:15px!important;line-height:1.2!important;}
+.site-footer .footer-columns a {font-size:15px!important;line-height:2.0!important;}
+.site-footer .footer-info p {font-size:15px!important;line-height:1.5!important;}
+.site-footer .footer-bottom>strong {display:none!important;}
+.site-footer .footer-bottom>span {text-align:center!important;width:100%!important;}
+
+/* Rodapé: títulos em 15px; links e descrição em 10px com a fonte Poppins da descrição do Portfólio. */
+.site-footer .footer-columns h3{font-size:15px!important;}
+.site-footer .footer-columns a,
+.site-footer .footer-info p{font-family:'Poppins',sans-serif!important;font-size:12px!important;font-weight:400!important;letter-spacing:normal!important;}
+
+/* Barra de áudio: revela por opacidade, sem animar a largura para evitar tremores no hover. */
+.story-sound-control input{width:65px;transition:opacity .15s ease!important}
+.story-sound-control:hover input,.story-sound-control:focus-within input{width:65px;opacity:1;pointer-events:auto}
+@media(max-width:600px){.story-sound-control input{width:45px}.story-sound-control:hover input,.story-sound-control:focus-within input{width:45px}}
+@media(max-width:480px){.story-sound-control input{width:38px}.story-sound-control:hover input,.story-sound-control:focus-within input{width:38px}}
+@media(max-width:390px){.story-sound-control input{width:30px}.story-sound-control:hover input,.story-sound-control:focus-within input{width:30px}}
+
+/* Títulos da página Sobre Nós padronizados em 35px. */
+.about-story-copy h3{font-size:35px!important;}
+.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}
+.empresas .empresas-eyebrow{font-size:35px!important;}
+@media(max-width:600px){.about-story-copy h3{font-size:35px!important;}.instagram-live-about-title{font-family:inherit!important;font-size:35px!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:1.2!important;}.empresas .empresas-eyebrow{font-size:35px!important;}}
+
+</style>
+
+<style id="mobile-nav-inner-transparent-preserve-contact-and-desktop-photo">
+@media (max-width: 650px) {
+  /* Remove only the extra outline/background around the group of navigation links. */
+  .navbar .nav-links,
+  .navbar .nav-links:hover,
+  .navbar .nav-links:focus-within {
+    background: transparent !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+  /* Keep individual links clean, but preserve the red Contact button. */
+  .navbar .nav-links a:not(.nav-contact-link),
+  .navbar .nav-links a:not(.nav-contact-link):hover,
+  .navbar .nav-links a:not(.nav-contact-link):focus,
+  .navbar .nav-links a:not(.nav-contact-link):active {
+    background: transparent !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  .navbar .nav-links a.nav-contact-link,
+  .navbar .nav-links a.nav-contact-link:hover,
+  .navbar .nav-links a.nav-contact-link:focus,
+  .navbar .nav-links a.nav-contact-link:active {
+    border: 2px solid #d91f12 !important;
+    background: #c91d10 !important;
+    border-radius: 12px !important;
+    padding: 10px 16px !important;
+    color: #fff !important;
+    box-shadow: none !important;
+  }
+}
+</style>
+
+<style id="menu-mobile-transparencia-unificada-final">
+@media (max-width: 650px) {
+  /* O fundo do menu permanece igual antes e depois da rolagem. */
+  .navbar, .navbar.scrolled {
+    background: rgba(11,15,20,.58) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+  /* Apenas a cápsula principal envolve os links; o grupo interno é transparente. */
+  .navbar .nav-links,
+  .navbar .nav-links:hover,
+  .navbar .nav-links:focus,
+  .navbar .nav-links:focus-within,
+  .navbar .nav-links:active {
+    background: transparent !important;
+    border: 0 !important; outline: 0 !important; box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+  .navbar .nav-links a:not(.nav-contact-link),
+  .navbar .nav-links a:not(.nav-contact-link):hover,
+  .navbar .nav-links a:not(.nav-contact-link):focus,
+  .navbar .nav-links a:not(.nav-contact-link):active,
+  .navbar .nav-links a:not(.nav-contact-link)[aria-current="page"] {
+    background: transparent !important; border: 0 !important; outline: 0 !important;
+    box-shadow: none !important; border-radius: 0 !important;
+  }
+  /* Mantém o botão Contato vermelho, com sua borda original. */
+  .navbar .nav-links a.nav-contact-link,
+  .navbar .nav-links a.nav-contact-link:hover,
+  .navbar .nav-links a.nav-contact-link:focus,
+  .navbar .nav-links a.nav-contact-link:active {
+    border: 2px solid #d91f12 !important; background: #c91d10 !important;
+    border-radius: 12px !important; color: #fff !important; box-shadow: none !important;
+  }
+}
+</style>
+
+<style id="restaurar-tamanhos-mobile-pequenos">
+@media (max-width: 650px) {
+  .about-story-copy h3,
+  .instagram-live-about-title,
+  .empresas .empresas-eyebrow { font-size: 20px !important; }
+  .about-story-copy p,
+  .instagram-live-about-description,
+  .empresas .empresas-description,
+
+}
+</style>
+
+
+<style id="restaurar-rodape-mobile-vertical-sem-alterar-tipografia">
+@media (max-width: 650px) {
+  .site-footer .footer-columns { grid-template-columns: minmax(0, 1fr) !important; }
+  .site-footer .footer-columns > * { width: 100% !important; }
+  .whatsapp-scroll { left: 4px !important; bottom: 8px !important; }
+}
+@media (max-width: 600px) {
+  .whatsapp-scroll { left: 4px !important; bottom: 8px !important; }
+}
+</style>
+
+<style id="alternar-imagens-e-textos-historia">
+/* Mantém as três histórias lado a lado, alternando a posição da imagem. */
+.about-story-row:nth-child(odd) .about-story-image { order: 2 !important; }
+.about-story-row:nth-child(odd) .about-story-copy { order: 1 !important; }
+.about-story-row:nth-child(even) .about-story-image { order: 0 !important; }
+.about-story-row:nth-child(even) .about-story-copy { order: 1 !important; }
+@media (max-width: 600px) {
+  .about-story-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; align-items: center !important; gap: 12px !important; }
+  .about-story-row .about-story-image { height: auto !important; aspect-ratio: 3 / 4 !important; }
+  .about-story-row .about-story-copy h3 { font-size: 20px !important; line-height: 1.15 !important; }
+  .about-story-row .about-story-copy p { font-size: 12px !important; line-height: 1.45 !important; }
+}
+</style>
+
+
+<style id="mobile-navlinks-background-match-navbar">
+/* Apenas mobile: o fundo do grupo Sobre Nós/Portfólio fica igual ao fundo da barra principal. */
+@media (max-width: 650px) {
+  .navbar .nav-links,
+  .navbar .nav-links:hover,
+  .navbar .nav-links:focus,
+  .navbar .nav-links:focus-within,
+  .navbar .nav-links:active {
+    background: rgba(11,15,20,.58) !important;
+  }
+}
+</style>
+
+<style id="instagram-mobile-white-space-reduction">
+/* Somente mobile: reduz a área branca vazia abaixo da grade incorporada do Instagram. */
+@media (max-width: 600px) {
+  .instagram-live-embed-column { min-height: 0 !important; height: auto !important; }
+  .instagram-live-embed-wrap { min-height: 0 !important; height: auto !important; }
+  .instagram-live-embed-wrap iframe { height: 370px !important; min-height: 370px !important; }
+}
+@media (max-width: 420px) {
+  .instagram-live-embed-column { min-height: 0 !important; height: auto !important; }
+  .instagram-live-embed-wrap { min-height: 0 !important; height: auto !important; }
+  .instagram-live-embed-wrap iframe { height: 350px !important; min-height: 350px !important; }
+}
+</style>
+
+
+<style id="whatsapp-notification-badge-smaller-centered">
+/* Ajuste solicitado: bolinha vermelha menor e número 1 centralizado. */
+.whatsapp-scroll .whatsapp-notification{
+  width:15px!important;min-width:15px!important;height:15px!important;padding:0!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  box-sizing:border-box!important;border:1px solid #d71920!important;border-radius:50%!important;
+  top:5px!important;right:4px!important;font:700 9px/1 Arial,sans-serif!important;
+  text-align:center!important;line-height:1!important;
+}
+</style>
+
+
+<style id="whatsapp-notification-badge-arrival-animation">
+/* Pequeno salto repetido para simular uma nova mensagem chegando. */
+@keyframes whatsappBadgeMessageBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  12% { transform: translateY(-3px) scale(1.08); }
+  24% { transform: translateY(0) scale(1); }
+  36% { transform: translateY(-2px) scale(1.05); }
+  48% { transform: translateY(0) scale(1); }
+  62% { transform: translateY(-1px) scale(1.02); }
+  74%, 100% { transform: translateY(0) scale(1); }
+}
+.whatsapp-scroll .whatsapp-notification {
+  transform-origin: center;
+  animation: whatsappBadgeMessageBounce 1.8s ease-in-out infinite !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-scroll .whatsapp-notification { animation: none !important; }
+}
+</style>
+
+
+<style id="mobile-nav-links-inner-background-transparent-final">
+@media (max-width: 650px) {
+  .navbar .nav-links,
+  .navbar .nav-links:hover,
+  .navbar .nav-links:focus,
+  .navbar .nav-links:focus-within,
+  .navbar .nav-links:active {
+    background: none !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+  }
+}
+</style>
+
+<style id="final-navbar-darker-ver-portfolio-white">
+.navbar, .navbar.scrolled { background: rgba(7, 9, 12, .72) !important; }
+.floating-page-arrows > a, .floating-page-arrows > a span { color: #fff !important; text-shadow: none !important; }
+.floating-page-arrows > a svg { color: #fff !important; stroke: #fff !important; }
+</style>
+
+<style id="mobile-open-menu-shift-right-final">
+/* Move o painel aberto do menu mobile um pouco para a direita, sem alterar a navbar. */
+@media (max-width: 650px) {
+  .navbar .nav-links.open, .navbar .nav-links.active { right: -61px !important; left: auto !important; }
+}
+</style>
+
+
+<style id="rodape-tamanhos-mobile-solicitados">
+@media (max-width: 700px) {
+  .site-footer .footer-columns h3 { font-size: 12px !important; }
+  .site-footer .footer-columns a,
+  .site-footer .footer-info p { font-size: 9px !important; }
+  .site-footer .footer-bottom > span { font-size: 12px !important; }
+}
+</style>
+
+<style id="about-story-descriptions-size-final">
+/* Ajuste solicitado apenas nas descrições da página Sobre Nós. */
+.about-story-copy p { font-size: 21px !important; }
+@media (max-width: 600px) {
+  .about-story-copy p { font-size: 10.5px !important; }
+}
+</style>
+
+<style id="about-story-mobile-font-final">
+/* Somente mobile: descrições em 10px e títulos em 16px. */
+@media (max-width: 600px) {
+  .about-story-copy p { font-size: 10px !important; }
+  .about-story-copy h3 { font-size: 16px !important; }
+}
+</style>
+
+<style>
+/* Ajuste exclusivo da página Sobre Nós: tipografia mobile dos blocos de história */
+@media (max-width: 600px) {
+  .about-story-copy h3 { font-size: 17px !important; }
+  .about-story-copy p { font-size: 10px !important; }
+}
+</style>
+
+<style id="familia-tipografica-titulos-sobre-nos">
+/* Mesma família tipográfica do título Acompanhe de perto nossos projetos e bastidores. */
+.about-story-copy h3,
+.empresas .empresas-eyebrow,
+.site-footer .footer-columns h3 {
+  font-family: 'Barlow Condensed', sans-serif !important;
+}
+</style>
+
+<style id="clientes-titulo-42px-igual-referencia">
+/* Único ajuste solicitado: título Clientes da seção de clientes igual ao título da primeira referência. */
+.empresas .empresas-header .empresas-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -1.2px !important;
+  color: #f4f4f4 !important;
+  text-transform: none !important;
+}
+@media (max-width: 650px) {
+  .empresas .empresas-header .empresas-eyebrow { font-size: 42px !important; }
+}
+</style>
+
+
+<style id="menu-links-15px-poppins-light-final">
+/* Menu: mesmo peso Poppins Light, com tamanho de 15px em todos os links. */
+.navbar .nav-links a,
+.navbar .nav-links a:not(.nav-contact-link),
+.navbar .nav-links a.nav-contact-link {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 300 !important;
+}
+</style>
+
+
+<style id="titulos-sobre-poppins-medium-igual-vitor-matos">
+/* Os três títulos da história usam a mesma família e peso do nome VITOR MATOS no menu. */
+.about-story-copy h3 {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500 !important;
+}
+</style>
+
+
+<style id="titulos-e-descricoes-sobre-desktop-30-19">
+/* Ajuste exclusivo para desktop nos três blocos da seção Sobre Nós. */
+.about-story-copy h3 { font-size: 30px !important; }
+.about-story-copy p { font-size: 19px !important; }
+/* Preserva os tamanhos mobile anteriores. */
+@media (max-width: 600px) {
+  .about-story-copy h3 { font-size: 35px !important; }
+  .about-story-copy p { font-size: 11px !important; }
+}
+</style>
+
+<style id="acompanhe-clientes-igual-criatividade-poppins-30">
+/* Os títulos Acompanhe... e Clientes seguem exatamente a tipografia do título Criatividade Com Estrutura. */
+#instagramLiveTitle,
+.empresas .empresas-header .empresas-eyebrow {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 30px !important;
+  font-weight: 500 !important;
+  line-height: 1.1 !important;
+  letter-spacing: 2.2px !important;
+  text-transform: none !important;
+}
+@media (max-width: 600px) {
+  #instagramLiveTitle,
+  .empresas .empresas-header .empresas-eyebrow {
+    font-size: 35px !important;
+  }
+}
+</style>
+
+<style id="instagram-textos-brancos-restaurados">
+/* Mantém em branco os textos informativos do perfil do Instagram. */
+.instagram-live-profile-name small,
+.instagram-live-note {
+  color: #fff !important;
+}
+</style>
+
+<style id="instagram-live-description-branca">
+/* Mantém somente a descrição do perfil em branco, sem alterar outros estilos. */
+.instagram-live-description {
+  color: #fff !important;
+}
+</style>
+
+<style id="footer-headings-typography-menu-match">
+/* Somente os títulos das quatro colunas do rodapé usam a tipografia da marca VITOR MATOS no menu. */
+.site-footer .footer-columns h3 {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: .1px !important;
+}
+</style>
+
+<style id="footer-body-typography-about-copy-match">
+/* Links, descrição e direitos autorais do rodapé usam a mesma tipografia da descrição ao lado de Stefany Lima. */
+.site-footer .footer-columns a,
+.site-footer .footer-info p,
+.site-footer .footer-bottom > span {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 300 !important;
+}
+</style>
+
+<style id="footer-copywriter-and-ver-portfolio-final">
+/* Copyright © 2026: 15px em branco. */
+.site-footer .footer-bottom > span {
+  font-size: 15px !important;
+  color: #fff !important;
+}
+/* Títulos das colunas do rodapé permanecem em 15px no desktop. */
+@media (min-width: 701px) {
+  .site-footer .footer-columns h3 { font-size: 15px !important; }
+}
+/* VER PORTFÓLIO usa a tipografia da marca VITOR MATOS no menu. */
+.floating-page-arrows > a,
+.floating-page-arrows > a span {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: .1px !important;
+}
+</style>
+
+<style id="cor-b9bec5-textos-sobre-e-menu">
+/* Cor solicitada para a frase da permissão de áudio; o título/botão Ativar som permanece inalterado. */
+#permissaoSom .permissao-som-conteudo p:not(.permissao-som-marca) { color: #b9bec5 !important; }
+/* Textos descritivos da história, incluindo a apresentação de Stefany Lima. */
+.about-story-copy p { color: #b9bec5 !important; }
+/* Textos informativos do cartão do Instagram. */
+.instagram-live-profile-name small,
+.instagram-live-description,
+.instagram-live-note { color: #b9bec5 !important; }
+/* Links da barra de navegação. */
+.navbar .nav-links a,
+.navbar .nav-links a:not(.nav-contact-link),
+.navbar .nav-links a.nav-contact-link { color: #b9bec5 !important; }
+</style>
+
+<style id="menu-links-brancos-final">
+/* Links Sobre Nós, Portfólio e Contato em branco; demais cores permanecem inalteradas. */
+.navbar .nav-links a,
+.navbar .nav-links a:not(.nav-contact-link),
+.navbar .nav-links a.nav-contact-link,
+.navbar .nav-links a:hover,
+.navbar .nav-links a:focus,
+.navbar .nav-links a:active,
+.navbar .nav-links a[aria-current="page"] { color: #fff !important; }
+</style>
+
+<style id="ajuste-tipografia-menu-mobile-nov-2026">
+/* Ajustes exclusivos para mobile: marca em 15px e links em 13px. */
+@media (max-width: 700px) {
+  .navbar .brand-logo { font-size: 15px !important; }
+  .navbar .nav-links a,
+  .navbar .nav-links a:not(.nav-contact-link),
+  .navbar .nav-links a.nav-contact-link { font-size: 13px !important; }
+}
+</style>
+
+<style id="titulos-historia-mobile-15px-nov-2026">
+/* Somente no mobile: os três títulos da história ficam em 15px. */
+@media screen and (max-width: 768px) {
+  html body .about-story-row .about-story-copy h3,
+  html body .about-story-copy h3 {
+    font-size: 15px !important;
+  }
+}
+</style>
+
+<style id="acompanhe-clientes-mobile-15px-final">
+/* Somente no mobile: títulos Acompanhe... e Clientes com 15px. */
+@media (max-width: 768px) {
+  #instagramLiveTitle,
+  .empresas .empresas-header .empresas-eyebrow {
+    font-size: 15px !important;
+  }
+}
+</style>
+
+<style id="instagram-mobile-fonts-final-adjustment">
+/* Ajustes finais exclusivos do mobile no cartão do Instagram. */
+@media (max-width: 760px) {
+  .instagram-live-description { font-size: 13px !important; }
+  .instagram-live-profile-name span { font-size: 12px !important; }
+  .instagram-live-link { font-size: 13px !important; }
+}
+</style>
+
+<style id="correcao-definitiva-rodape-mobile-2026">
+/* Tipografia do rodapé e do link VER PORTFÓLIO: somente telas mobile. */
+@media screen and (max-width: 700px) {
+  .site-footer .footer-columns h3 { font-size: 13px !important; }
+  .site-footer .footer-columns a { font-size: 11px !important; }
+  .site-footer .footer-info p { font-size: 11px !important; }
+  .site-footer .footer-bottom > span { font-size: 11px !important; }
+  .floating-page-arrows > a,
+  .floating-page-arrows > a span { font-size: 11px !important; }
+}
+</style>
